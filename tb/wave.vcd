@@ -1,0 +1,371 @@
+$date
+	Wed Mar 19 15:17:19 2025
+$end
+
+$version
+	Synopsys VCS version W-2024.09-SP1_Full64
+$end
+
+$timescale
+	1ns
+$end
+
+$comment Csum: 1 57806e3b84525c65 $end
+
+
+$scope module uvm_pkg $end
+$var time 64 ! setting_offset $end
+$var reg 32 " uvm_global_random_seed [31:0] $end
+$var reg 32 # UVM_UNBOUNDED_CONNECTIONS [31:0] $end
+$var reg 1 $ uvm_start_uvm_declarations $end
+$var reg 32 % setting_verbosity [31:0] $end
+$var reg 1 & is_verdi_set_verbosity_called $end
+$var reg 1 ' is_uvm_factory_trace_checked $end
+$var reg 1 ( is_verdi_trace_fac $end
+$upscope $end
+
+
+$scope module wb_pkg $end
+$upscope $end
+
+
+$scope module clock_and_reset_pkg $end
+$upscope $end
+
+
+$scope module simple_spi $end
+$var wire 1 ) clk_i $end
+$var wire 1 * rst_i $end
+$var wire 1 + cyc_i $end
+$var wire 1 , stb_i $end
+$var wire 3 - adr_i [2:0] $end
+$var wire 1 . we_i $end
+$var wire 8 / dat_i [7:0] $end
+$var reg 8 0 dat_o [7:0] $end
+$var reg 1 1 ack_o $end
+$var reg 1 2 inta_o $end
+$var reg 1 3 sck_o $end
+$var wire 1 4 ss_o [0:0] $end
+$var wire 1 5 mosi_o $end
+$var wire 1 6 miso_i $end
+$var reg 8 7 spcr [7:0] $end
+$var wire 8 8 spsr [7:0] $end
+$var reg 8 9 sper [7:0] $end
+$var reg 8 : treg [7:0] $end
+$var reg 1 ; ss_r [0:0] $end
+$var wire 8 < rfdout [7:0] $end
+$var reg 1 = wfre $end
+$var reg 1 > rfwe $end
+$var wire 1 ? rfre $end
+$var wire 1 @ rffull $end
+$var wire 1 A rfempty $end
+$var wire 8 B wfdout [7:0] $end
+$var wire 1 C wfwe $end
+$var wire 1 D wffull $end
+$var wire 1 E wfempty $end
+$var wire 1 F tirq $end
+$var wire 1 G wfov $end
+$var reg 2 H state [1:0] $end
+$var reg 3 I bcnt [2:0] $end
+$var wire 1 J wb_acc $end
+$var wire 1 K wb_wr $end
+$var wire 1 L spie $end
+$var wire 1 M spe $end
+$var wire 1 N dwom $end
+$var wire 1 O mstr $end
+$var wire 1 P cpol $end
+$var wire 1 Q cpha $end
+$var wire 2 R spr [1:0] $end
+$var wire 2 S icnt [1:0] $end
+$var wire 2 T spre [1:0] $end
+$var wire 4 U espr [3:0] $end
+$var wire 1 V wr_spsr $end
+$var reg 1 W spif $end
+$var reg 1 X wcol $end
+$var reg 12 Y clkcnt [11:0] $end
+$var wire 1 Z ena $end
+$var reg 2 [ tcnt [1:0] $end
+
+$scope module rfifo $end
+$var wire 1 ) clk $end
+$var wire 1 \ rst $end
+$var wire 1 ] clr $end
+$var wire 8 ^ din [8:1] $end
+$var wire 1 _ we $end
+$var wire 8 < dout [8:1] $end
+$var wire 1 ? re $end
+$var wire 1 @ full $end
+$var wire 1 A empty $end
+$var reg 2 ` wp [1:0] $end
+$var reg 2 a rp [1:0] $end
+$var wire 2 b wp_p1 [1:0] $end
+$var wire 2 c wp_p2 [1:0] $end
+$var wire 2 d rp_p1 [1:0] $end
+$var reg 1 e gb $end
+$upscope $end
+
+
+$scope module wfifo $end
+$var wire 1 ) clk $end
+$var wire 1 \ rst $end
+$var wire 1 ] clr $end
+$var wire 8 / din [8:1] $end
+$var wire 1 C we $end
+$var wire 8 B dout [8:1] $end
+$var wire 1 f re $end
+$var wire 1 D full $end
+$var wire 1 E empty $end
+$var reg 2 g wp [1:0] $end
+$var reg 2 h rp [1:0] $end
+$var wire 2 i wp_p1 [1:0] $end
+$var wire 2 j wp_p2 [1:0] $end
+$var wire 2 k rp_p1 [1:0] $end
+$var reg 1 l gb $end
+$upscope $end
+
+$upscope $end
+
+
+$scope module hw_top $end
+$var reg 32 m clock_period [31:0] $end
+$var reg 1 n run_clock $end
+$var reg 1 o clock $end
+$var reg 1 p reset $end
+
+$scope module cr_if $end
+$var reg 1 q clock_cycle_count_reached $end
+$var reg 1 r clock $end
+$var reg 1 p reset $end
+$var reg 1 n run_clock $end
+$var reg 32 m clock_period [31:0] $end
+$var reg 32 s reset_delay [31:0] $end
+$var reg 32 t clock_cycles_to_count [31:0] $end
+
+$scope task start_clock $end
+$var reg 32 u input_clock_period [31:0] $end
+$var reg 32 v input_reset_delay [31:0] $end
+$var reg 1 w input_run_clock $end
+$upscope $end
+
+
+$scope task count_clocks $end
+$var reg 32 x new_count [31:0] $end
+$upscope $end
+
+
+$scope task get_current_cycle_count $end
+$var reg 32 y cycles_counted [31:0] $end
+$upscope $end
+
+$upscope $end
+
+
+$scope module wif $end
+$var reg 1 r clk $end
+$var reg 1 z cyc $end
+$var reg 1 { stb $end
+$var reg 32 | addr [31:0] $end
+$var reg 1 } we $end
+$var reg 8 ~ din [7:0] $end
+$var reg 8 "! dout [7:0] $end
+$var reg 1 "" ack $end
+$var reg 1 "# rst_n $end
+$var reg 1 "$ inta $end
+$upscope $end
+
+
+$scope module clkgen $end
+$var reg 1 o clock $end
+$var wire 1 n run_clock $end
+$var reg 32 m clock_period [31:0] $end
+$upscope $end
+
+$upscope $end
+
+
+$scope module top $end
+
+$scope begin unnamed$$_vcs_2 $end
+$upscope $end
+
+$upscope $end
+
+$enddefinitions $end
+
+#0
+$dumpvars
+1'
+0&
+0(
+1$
+bxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx !
+b11111111111111111111111111111111 #
+b00000000000000000000000000000000 %
+b01000010000001111100110001000111 "
+x1
+xZ
+x2
+x>
+x3
+xW
+x;
+xN
+xO
+xL
+xM
+xP
+xQ
+xF
+xJ
+xK
+xX
+xG
+x=
+xV
+bxxx I
+bxxxxxxxxxxxx Y
+bxxxxxxxx 0
+bxxxxxxxx 7
+bxxxxxxxx 9
+bxx00xxxx 8
+bxx H
+bxx [
+bxx R
+bxx T
+bxxxx U
+bxx S
+bxxxxxxxx :
+xe
+bxx a
+bxx d
+bxx c
+bxx `
+bxx b
+xl
+bxx h
+bxx k
+bxx j
+bxx g
+bxx i
+0o
+b00000000000000000000000000001010 m
+1w
+b00000000000000000000000000000000 t
+b00000000000000000000000000000101 s
+b00000000000000000000000000000000 x
+b00000000000000000000000000000000 y
+b00000000000000000000000000001010 u
+b00000000000000000000000000000101 v
+b00000000 "!
+b00000000 ~
+b00000000000000000000000000000000 |
+0"$
+z)
+xD
+xE
+x@
+xA
+bzzzzzzzz /
+x]
+bxxxxxxxx ^
+x_
+bxxxxxxxx <
+x?
+xC
+bxxxxxxxx B
+xf
+z*
+x\
+z+
+z,
+bzzz -
+z.
+x4
+x5
+z6
+0p
+1n
+0r
+0"#
+0q
+0""
+0z
+0{
+0}
+$end
+#5
+1o
+1r
+b00000000000000000000000000000100 s
+1p
+1"#
+#10
+0o
+0r
+1z
+1{
+b00000000000000000000000000000010 |
+1}
+b11011000 ~
+#15
+1o
+1r
+b00000000000000000000000000000011 s
+#20
+0o
+0r
+#25
+1o
+1r
+b00000000000000000000000000000010 s
+#30
+0o
+0r
+#35
+1o
+1r
+b00000000000000000000000000000001 s
+1""
+#40
+0o
+0r
+#45
+1o
+1r
+b00000000000000000000000000000000 s
+0""
+0z
+0{
+b00000000000000000000000000000000 |
+0}
+b00000000 ~
+#50
+0o
+0r
+1z
+1{
+b00000000000000000000000000000010 |
+#55
+1o
+1r
+b00100100 "!
+0p
+0"#
+#60
+0o
+0r
+#65
+1o
+1r
+1""
+#70
+0o
+0r
+#75
+1o
+1r
+0""
+0z
+0{
+b00000000000000000000000000000000 |
+b00000000000000000000000000000101 s
