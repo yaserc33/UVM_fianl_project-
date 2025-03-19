@@ -24,15 +24,17 @@ class wb_master_driver extends uvm_driver #(wb_transaction);
 
   // run_phase
   virtual task run_phase(uvm_phase phase);
-    vif.rst();
+    
     forever begin
       // Get new item from the sequencer
       seq_item_port.get_next_item(req);
 
       `uvm_info(get_type_name(), req.sprint() ,UVM_MEDIUM)
       vif.send_to_dut(req);
-
       seq_item_port.item_done();
+      //put_response(rsp);
+
+
     end
 
     

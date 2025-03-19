@@ -5,7 +5,7 @@
 // compile files
 ../sv/wb_pkg.sv
 ../sv/wb_if.sv 
-wb_top.sv
+demo_wb_top.sv
 
 
 

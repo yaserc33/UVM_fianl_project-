@@ -1,14 +1,9 @@
-
-
-interface wb_if ();
+interface wb_if (input bit clk, input bit rst_n);
   import uvm_pkg::*;
   `include "uvm_macros.svh"
-
   import wb_pkg::*;
 
 //signals
-bit clk;
-bit rst_n;
 bit inta;
 bit cyc ;
 bit stb;
@@ -19,13 +14,6 @@ bit [7:0] dout;
 bit ack;
 
 
-
-// reset task  
-task  rst ();
-rst_n <=0;
-@(posedge clk);
-rst_n <=1;
-endtask :rst
 
 
 task  send_to_dut (wb_transaction tr);
@@ -38,12 +26,12 @@ addr <= tr.addr;
 we <= 1;
 din <= tr.din;
 wait(ack);
+wait(!ack);
 cyc <= 0;
 stb <= 0;
 addr <= 0;
 we <= 0;
 din <= 0;
-wait(!ack);
 
 end else if (tr.op_type == wb_read)begin
 
@@ -55,11 +43,11 @@ we <= 0;
 @(posedge clk);
 
 wait(ack);
+tr.dout = dout;
+wait(!ack);
 cyc <= 0;
 stb <= 0;
 addr <= 0;
-wait(!ack);
-
 end
 
 endtask :send_to_dut

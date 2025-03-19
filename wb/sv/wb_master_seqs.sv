@@ -49,7 +49,44 @@ endclass : wb_base_seq
 
 
 //------------------------------------------------------------------------------
-// SEQUENCE: wb_write_byte_seq -  write byte to spi peripheral (addr 3)
+// SEQUENCE: wb_write_read_seq -  write byte to spi peripheral (addr 2 spi data register) then read one byte from it
+//------------------------------------------------------------------------------
+class wb_write_read_seq extends wb_base_seq ;
+
+  function new(string name = get_type_name());
+    super.new(name);
+  endfunction
+
+  `uvm_object_utils(wb_write_read_seq)
+
+  virtual task body();
+    `uvm_info(get_type_name(), "Executing sequence", UVM_LOW)
+
+    `uvm_do_with(req,
+                 { op_type == wb_write ;
+                   addr == 2;}
+                )
+    //get_response(rsp);
+    //`uvm_info(get_type_name(), {"seq response :" ,   rsp.sprint()}, UVM_LOW)
+    
+    `uvm_do_with(req,
+                { op_type == wb_read ;
+                  addr == 2;}
+              )
+
+
+
+//    `uvm_info(get_type_name(), $sformatf("wb WRITE ADDRESS:%0d  DATA:%h", req.addr, req.din), UVM_MEDIUM)
+
+  endtask : body
+
+
+
+endclass : wb_write_read_seq
+
+
+//------------------------------------------------------------------------------
+// SEQUENCE: wb_write_byte_seq -  write byte to spi peripheral (addr 2 spi data register )
 //------------------------------------------------------------------------------
 class wb_write_seq extends wb_base_seq ;
 
@@ -64,10 +101,6 @@ class wb_write_seq extends wb_base_seq ;
 
     `uvm_do_with(req,
                  { op_type == wb_write ;
-                   addr == 3;}
-                )
-     `uvm_do_with(req,
-                  { op_type == wb_read ;
                    addr == 2;}
                 )
 
@@ -78,6 +111,72 @@ class wb_write_seq extends wb_base_seq ;
 
 endclass : wb_write_seq
 
+
+
+//------------------------------------------------------------------------------
+// SEQUENCE: wb_read_byte_seq -  read byte from spi peripheral (addr 3)
+//------------------------------------------------------------------------------
+class wb_read_seq extends wb_base_seq ;
+
+  function new(string name = get_type_name());
+    super.new(name);
+  endfunction
+
+  `uvm_object_utils(wb_read_seq)
+
+  virtual task body();
+    `uvm_info(get_type_name(), "Executing sequence", UVM_LOW)
+
+      
+     `uvm_do_with(req,
+                  { op_type == wb_read ;
+                   addr == 2;}
+                )
+
+
+  endtask : body
+
+
+endclass : wb_read_seq
+
+
+
+//------------------------------------------------------------------------------
+// SEQUENCE: wb_polling_seq -  the master will read continuously the stuts rgister of the spi if the spi fifo is not empty then cpu will send a read requist
+//------------------------------------------------------------------------------
+class wb_polling_seq extends wb_base_seq ;
+
+  function new(string name = get_type_name());
+    super.new(name);
+  endfunction
+
+  `uvm_object_utils(wb_polling_seq)
+
+  virtual task body();
+    `uvm_info(get_type_name(), "Executing sequence", UVM_LOW)
+
+     // while (true)begin
+             `uvm_do_with(req,
+                  { op_type == wb_read ;  addr == 1;})
+
+
+           // if ()
+        //    breake;
+    //  end
+        
+            rsp.print();
+
+      // `uvm_do_with(req,
+      //             { op_type == wb_read ;  addr == 2;})
+
+
+
+
+
+  endtask : body
+
+
+endclass : wb_polling_seq
 
 
 //------------------------------------------------------------------------------
