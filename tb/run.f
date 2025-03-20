@@ -13,7 +13,7 @@
 
 ############select test###########
 
-+UVM_TESTNAME=wb_write_read_test
++UVM_TESTNAME=wb_write_test
 //+UVM_TESTNAME=wb_all_address_test
 
 

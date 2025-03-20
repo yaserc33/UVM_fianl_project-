@@ -2836,45 +2836,45 @@ static inline U asm_bsf (U in)
 #ifdef __cplusplus
 extern "C" {
 #endif
-void  rmaPropagate0_simv_daidir (UB  * pcode, scalar  val);
-void  rmaPropagate0_t0_simv_daidir (UB  * pcode, UB  val);
-void  rmaPropagate1_simv_daidir (UB  * pcode, scalar  val);
-void  rmaPropagate1_t0_simv_daidir (UB  * pcode, UB  val);
-void  rmaPropagate2_p_simv_daidir (UB  * pcode, vec32  * I1130, U  I1001);
-void  rmaPropagate2_simv_daidir (UB  * pcode, vec32  * I1130, U  I1001);
-void  rmaPropagate2_lbs_simv_daidir (UB  * pcode, scalar  val, U  I1160);
-void  rmaPropagate2_lps_simv_daidir (UB  * pcode, vec32  * I1547, U  I1160, U  I1557);
-void  rmaPropagate2_s0f_simv_daidir (UB  * pcode, vec32  * I1130);
-void  rmaPropagate3_simv_daidir (UB  * pcode, scalar  val);
+void  rmaPropagate0_simv_daidir (UB  * pcode, vec32  * I1130, U  I1001);
+void  rmaPropagate1_simv_daidir (UB  * pcode, vec32  * I1130, U  I1001);
+void  rmaPropagate2_simv_daidir (UB  * pcode, scalar  val);
+void  rmaPropagate3_p_simv_daidir (UB  * pcode, vec32  * I1130, U  I1001);
+void  rmaPropagate3_simv_daidir (UB  * pcode, vec32  * I1130, U  I1001);
+void  rmaPropagate3_lbs_simv_daidir (UB  * pcode, scalar  val, U  I1160);
+void  rmaPropagate3_lps_simv_daidir (UB  * pcode, vec32  * I1547, U  I1160, U  I1557);
+void  rmaPropagate3_s0f_simv_daidir (UB  * pcode, vec32  * I1130);
 void  rmaPropagate4_simv_daidir (UB  * pcode, scalar  val);
-void  rmaPropagate5_p_simv_daidir (UB  * pcode, vec32  * I1130, U  I1001);
-void  rmaPropagate5_simv_daidir (UB  * pcode, vec32  * I1130, U  I1001);
-void  rmaPropagate5_t0_simv_daidir (UB  * pcode, U  I1001);
+void  rmaPropagate5_simv_daidir (UB  * pcode, scalar  val);
 void  rmaPropagate6_simv_daidir (UB  * pcode, scalar  val);
 void  rmaPropagate7_simv_daidir (UB  * pcode, scalar  val);
-void  rmaPropagate8_simv_daidir (UB  * pcode, vec32  * I1130, U  I1001);
+void  rmaPropagate8_simv_daidir (UB  * pcode, scalar  val);
 void  rmaPropagate9_simv_daidir (UB  * pcode, scalar  val);
 void  rmaPropagate10_simv_daidir (UB  * pcode, scalar  val);
 void  rmaPropagate10_t0_simv_daidir (UB  * pcode, UB  val);
 void  rmaPropagate11_simv_daidir (UB  * pcode, scalar  val);
+void  rmaPropagate11_t0_simv_daidir (UB  * pcode, UB  val);
 void  rmaPropagate12_simv_daidir (UB  * pcode, scalar  val);
 void  rmaPropagate12_t0_simv_daidir (UB  * pcode, UB  val);
-void  rmaPropagate13_p_simv_daidir (UB  * pcode, vec32  * I1130, U  I1001);
-void  rmaPropagate13_simv_daidir (UB  * pcode, vec32  * I1130, U  I1001);
-void  rmaPropagate13_t0_simv_daidir (UB  * pcode, U  I1001);
+void  rmaPropagate13_simv_daidir (UB  * pcode, scalar  val);
+void  rmaPropagate13_t0_simv_daidir (UB  * pcode, UB  val);
 void  rmaPropagate14_simv_daidir (UB  * pcode, scalar  val);
+void  rmaPropagate14_t0_simv_daidir (UB  * pcode, UB  val);
 void  rmaPropagate15_simv_daidir (UB  * pcode, scalar  val);
-void  rmaPropagate15_t0_simv_daidir (UB  * pcode, UB  val);
 void  rmaPropagate16_simv_daidir (UB  * pcode, scalar  val);
-void  rmaPropagate16_t0_simv_daidir (UB  * pcode, UB  val);
 void  rmaPropagate17_simv_daidir (UB  * pcode, scalar  val);
-void  rmaPropagate17_t0_simv_daidir (UB  * pcode, UB  val);
 void  rmaPropagate18_simv_daidir (UB  * pcode, scalar  val);
-void  rmaPropagate18_t0_simv_daidir (UB  * pcode, UB  val);
 void  rmaPropagate19_simv_daidir (UB  * pcode, scalar  val);
+void  rmaPropagate19_t0_simv_daidir (UB  * pcode, UB  val);
 void  rmaPropagate20_simv_daidir (UB  * pcode, scalar  val);
+void  rmaPropagate20_t0_simv_daidir (UB  * pcode, UB  val);
 void  rmaPropagate21_simv_daidir (UB  * pcode, scalar  val);
 void  rmaPropagate21_t0_simv_daidir (UB  * pcode, UB  val);
+void  rmaPropagate22_simv_daidir (UB  * pcode, scalar  val);
+void  rmaPropagate22_t0_simv_daidir (UB  * pcode, UB  val);
+void  rmaPropagate23_simv_daidir (UB  * pcode, scalar  val);
+void  rmaPropagate24_simv_daidir (UB  * pcode, scalar  val);
+void  rmaPropagate25_simv_daidir (UB  * pcode, scalar  val);
 void  schedNewEvent (struct dummyq_struct * I1462, EBLK  * I1457, U  I622);
 #ifdef __cplusplus
 }

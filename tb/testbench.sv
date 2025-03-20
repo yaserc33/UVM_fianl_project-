@@ -6,7 +6,7 @@ class testbench extends uvm_env;
   
   wb_env wb;
   clock_and_reset_env clk_rst;
-
+  spi_env spi;
 
 
   // Constructor - required syntax for UVM automation and utilities
@@ -18,10 +18,14 @@ class testbench extends uvm_env;
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
     uvm_config_int::set(this,"*wb*", "num_masters", 1);
-    uvm_config_int::set(this,"*wb*", "num_slaves", 1);
+    uvm_config_int::set(this,"*wb*", "num_slaves", 0);
+    uvm_config_int::set(this, "*spi*", "enable_master", 0);
+    uvm_config_int::set(this, "*spi*", "enable_slave", 1);
 
     wb = wb_env::type_id::create("wb", this);
     clk_rst = clock_and_reset_env::type_id::create("clk_rst" ,this);
+    spi = spi_env::type_id::create("spi", this);
+
   endfunction : build_phase
  
 

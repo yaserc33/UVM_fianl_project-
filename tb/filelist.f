@@ -8,6 +8,9 @@
 ../clock_and_reset/sv/clock_and_reset_if.sv
 ../clock_and_reset/sv/clock_and_reset_pkg.sv
 
++incdir+../spi/sv 
+../spi/sv/spi_pkg.sv
+../spi/sv/spi_if.sv
 
 
 

@@ -1,11 +1,11 @@
-interface spi_if(input logic clock, input logic reset, input  logic sclk);
+interface spi_if(input logic clock, input logic reset );
   import uvm_pkg::*;
   `include "uvm_macros.svh"
 
   import spi_pkg::*;
 
   // SPI 
- 
+  logic sclk;
   logic        cs;
   logic        mosi;
   logic        miso;

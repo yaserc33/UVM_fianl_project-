@@ -9,7 +9,8 @@ module top;
   `include "uvm_macros.svh"
   import wb_pkg::*;
   import clock_and_reset_pkg::*;
-
+  import clock_and_reset_pkg::*;
+  import spi_pkg::*;
 
   `include "testbench.sv"
   `include "test_lib.sv"
@@ -19,6 +20,8 @@ module top;
   initial begin
     wb_vif_config::set(null,"*.tb.wb.*","vif", hw_top.wif);
     clock_and_reset_vif_config::set(null , "*clk_rst*" , "vif" , hw_top.cr_if);
+    spi_vif_config::set(null,"*spi.slave_agent.*","vif", hw_top.sif);
+
     run_test();
   end
 

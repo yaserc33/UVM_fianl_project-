@@ -2,6 +2,7 @@ package spi_pkg;
   import uvm_pkg::*;
   `include "uvm_macros.svh"
   typedef uvm_config_db#(virtual spi_if) spi_vif_config;
+
   `include "../sv/spi_transaction.sv"
    
    //master 
