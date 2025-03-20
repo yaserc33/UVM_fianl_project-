@@ -67,38 +67,39 @@ class wb_write_seq extends wb_base_seq ;
     
     `uvm_do_with(req,
                  { op_type == wb_write ; // we =1
-                   addr == 0; //control register
+                   addr == 0; // enable spi by setting the control register 
                    din==8'b01110000;  // 7:disable inta 6:en spi 5:reserved 4:set spi as master 3:S_polarity 2: S_phase  [1:0]: sclk=clk/2
                    })
 
-                       
-  
 
-
-   
+       
+    `uvm_do_with(req,
+                 { op_type == wb_write ; 
+                   addr == 4;        //manually control CS singal through  register 4
+                   din==8'b0000001;  // [0]:  1 to clear Cs     0 to set cs
+                   })
    
    
    
     `uvm_do_with(req,
-                 { op_type == wb_write ;
+                 { op_type == wb_write ; // write a random data to data register 
                    addr == 2;}
                 )
 
-      #160;         
+      #160;      //stalling until spi send out the byte serially on mosi   
+          
+    `uvm_do_with(req,
+                 { op_type == wb_write ; 
+                   addr == 4; //manually control CS singal through  register 4
+                   din==8'b0000000;  // [0]:  1 to clear Cs     0 to set cs
+                   })
+
+
+
+
     `uvm_do_with(req,
                  { op_type == wb_read ;
-                   addr == 2;}
-                )
-
-  `uvm_do_with(req,
-                 { op_type == wb_write ;
-                   addr == 2;}
-                )
-
-      #160;         
-  `uvm_do_with(req,
-                 { op_type == wb_read ;
-                   addr == 2;}
+                   addr == 2;} //sending read requist to data reg to empty the garbge from read fifo
                 )
    
    
