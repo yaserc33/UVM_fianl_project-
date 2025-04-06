@@ -11,7 +11,10 @@ module top;
   import clock_and_reset_pkg::*;
   import clock_and_reset_pkg::*;
   import spi_pkg::*;
-
+  
+  
+  `include "../sv/mc_sequencer.sv"
+  `include "../sv/mc_seq_lib.sv"
   `include "testbench.sv"
   `include "test_lib.sv"
 

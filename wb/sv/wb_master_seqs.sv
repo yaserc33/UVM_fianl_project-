@@ -49,7 +49,7 @@ endclass : wb_base_seq
 
 
 //------------------------------------------------------------------------------
-// SEQUENCE: wb_write_read_seq -  write byte to spi peripheral (addr 2 spi data register) then dumy read from data reg to empty the read fifo of the spi
+// SEQUENCE: wb_write_seq -  write byte to spi peripheral (addr 2 spi data register) then dumy read from data reg to empty the read fifo of the spi
 //------------------------------------------------------------------------------
 
 class wb_write_seq extends wb_base_seq ;

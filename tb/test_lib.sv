@@ -53,12 +53,15 @@ class wb_write_test extends base_test;
 
 
     // Set the default sequence for the clock
+    uvm_config_wrapper::set(this, "*mc_seqr.run_phase",  "default_sequence", mc_seq::get_type()); 
     uvm_config_wrapper::set(this, "*clk_rst*", "default_sequence", clk10_rst5_seq::get_type());
 
-    // Set the default sequence for the wb_master
-    uvm_config_wrapper::set(this, "tb.wb.masters[0].sequencer.main_phase", "default_sequence",
-                            wb_write_seq::get_type());
 
+
+
+    // // Set the default sequence for the wb_master
+    // uvm_config_wrapper::set(this, "tb.wb.masters[0].sequencer.main_phase", "default_sequence",
+    //                         wb_write_seq::get_type());
     // Set the default sequence for the spi
     //uvm_config_wrapper::set(this, "tb.spi.slave_agent.*", "default_sequence", spi_slave_write_seq::get_type());
 
