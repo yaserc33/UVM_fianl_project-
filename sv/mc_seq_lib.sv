@@ -40,29 +40,65 @@ task pre_body();
 
 
 
+endclass: mc_seq
 
 
+
+
+
+
+
+
+
+class write_seq extends mc_seq;
+    
+    `uvm_object_utils(write_seq)
+ 
+
+    function new(string name ="write_seq");
+        super.new(name);
+    endfunction:new
 
 //declare the sequences you want to use
 
 wb_write_seq wb_write;   // SEQUENCE: wb_write_seq -  write byte to spi peripheral (addr 2 spi data register) then dumy read from data reg to empty the read fifo of the spi
-
-
 
 //in task body() do the SEQs in the targeted seqr
 virtual task body;
 `uvm_info(get_type_name(), "body of mc_sequence 🧑🏻‍⚖️" , UVM_FULL)
 
 `uvm_do_on(wb_write, p_sequencer.wb_seqr)
+endtask:body
 
+
+endclass: write_seq
+
+
+
+
+
+
+
+
+class read_seq extends mc_seq;
+    
+    `uvm_object_utils(read_seq)
+ 
+
+    function new(string name ="read_seq");
+        super.new(name);
+    endfunction:new
+
+//declare the sequences you want to use
+
+
+//in task body() do the SEQs in the targeted seqr
+virtual task body;
+
+
+//`uvm_do_on(wb_write, p_sequencer.wb_seqr)
 
 endtask:body
 
 
-
-
-
-
-
-
-endclass: mc_seq
+endclass: read_seq
