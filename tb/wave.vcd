@@ -1,0 +1,1163 @@
+$date
+	Mon Apr  7 13:19:54 2025
+$end
+
+$version
+	Synopsys VCS version W-2024.09-SP1_Full64
+$end
+
+$timescale
+	1ps
+$end
+
+$comment Csum: 1 fd5f15c82205c429 $end
+
+
+$scope module uvm_pkg $end
+$var time 64 ! setting_offset $end
+$var reg 32 " uvm_global_random_seed [31:0] $end
+$var reg 32 # UVM_UNBOUNDED_CONNECTIONS [31:0] $end
+$var reg 1 $ uvm_start_uvm_declarations $end
+$var reg 32 % setting_verbosity [31:0] $end
+$var reg 1 & is_verdi_set_verbosity_called $end
+$var reg 1 ' is_uvm_factory_trace_checked $end
+$var reg 1 ( is_verdi_trace_fac $end
+$upscope $end
+
+
+$scope module wb_pkg $end
+$upscope $end
+
+
+$scope module clock_and_reset_pkg $end
+$upscope $end
+
+
+$scope module spi_pkg $end
+$upscope $end
+
+
+$scope module hw_top $end
+$var reg 32 ) clock_period [31:0] $end
+$var reg 1 * run_clock $end
+$var reg 1 + clock $end
+$var reg 1 , reset $end
+$var reg 1 - sclk $end
+$var reg 1 . cs $end
+
+$scope module cr_if $end
+$var reg 1 / clock_cycle_count_reached $end
+$var reg 1 0 clock $end
+$var reg 1 , reset $end
+$var reg 1 * run_clock $end
+$var reg 32 ) clock_period [31:0] $end
+$var reg 32 1 reset_delay [31:0] $end
+$var reg 32 2 clock_cycles_to_count [31:0] $end
+
+$scope task start_clock $end
+$var reg 32 3 input_clock_period [31:0] $end
+$var reg 32 4 input_reset_delay [31:0] $end
+$var reg 1 5 input_run_clock $end
+$upscope $end
+
+
+$scope task count_clocks $end
+$var reg 32 6 new_count [31:0] $end
+$upscope $end
+
+
+$scope task get_current_cycle_count $end
+$var reg 32 7 cycles_counted [31:0] $end
+$upscope $end
+
+$upscope $end
+
+
+$scope module wif $end
+$var reg 1 0 clk $end
+$var reg 1 8 inta $end
+$var reg 1 9 cyc $end
+$var reg 1 : stb $end
+$var reg 32 ; addr [31:0] $end
+$var reg 1 < we $end
+$var reg 8 = din [7:0] $end
+$var reg 8 > dout [7:0] $end
+$var reg 1 ? ack $end
+$var reg 1 @ rst_n $end
+$upscope $end
+
+
+$scope module sif $end
+$var reg 1 A miso $end
+$var reg 1 B mosi $end
+$var reg 1 C mmonstart $end
+$var reg 1 D smonstart $end
+$var reg 1 E clock $end
+$var reg 1 , reset $end
+$var reg 1 - sclk $end
+$var reg 1 . cs $end
+$var reg 1 F cpol $end
+$var reg 1 G cpha $end
+$var reg 1 H masterstart $end
+$var reg 1 I slavestart $end
+$var reg 1 J enable_loopback $end
+
+$scope task master_send_to_dut $end
+$var reg 8 K data [7:0] $end
+$var reg 8 L received_data [7:0] $end
+
+$scope begin unnamed$$_0 $end
+$upscope $end
+
+$upscope $end
+
+
+$scope task collect_packet_m $end
+$var reg 8 M data [7:0] $end
+
+$scope begin unnamed$$_0 $end
+$upscope $end
+
+$upscope $end
+
+
+$scope task collect_packet_s $end
+$var reg 8 N data [7:0] $end
+$var reg 8 O data1 [7:0] $end
+
+$scope begin unnamed$$_0 $end
+$upscope $end
+
+$upscope $end
+
+
+$scope task master_reset $end
+$upscope $end
+
+
+$scope task slave_reset $end
+$upscope $end
+
+
+$scope task slave_receive_from_dut $end
+$var reg 8 P received_data [7:0] $end
+$var reg 8 Q response_data [7:0] $end
+
+$scope begin unnamed$$_0 $end
+$upscope $end
+
+$upscope $end
+
+$upscope $end
+
+
+$scope module clkgen $end
+$var reg 1 + clock $end
+$var wire 1 * run_clock $end
+$var reg 32 ) clock_period [31:0] $end
+$upscope $end
+
+
+$scope module spi1 $end
+$var wire 1 R clk_i $end
+$var wire 1 S rst_i $end
+$var wire 1 T cyc_i $end
+$var wire 1 U stb_i $end
+$var wire 3 V adr_i [2:0] $end
+$var wire 1 W we_i $end
+$var wire 8 X dat_i [7:0] $end
+$var reg 8 Y dat_o [7:0] $end
+$var reg 1 Z ack_o $end
+$var reg 1 [ inta_o $end
+$var reg 1 \ sck_o $end
+$var wire 1 ] ss_o [0:0] $end
+$var wire 1 ^ mosi_o $end
+$var wire 1 _ miso_i $end
+$var reg 8 ` spcr [7:0] $end
+$var wire 8 a spsr [7:0] $end
+$var reg 8 b sper [7:0] $end
+$var reg 8 c treg [7:0] $end
+$var reg 1 d ss_r [0:0] $end
+$var wire 8 e rfdout [7:0] $end
+$var reg 1 f wfre $end
+$var reg 1 g rfwe $end
+$var wire 1 h rfre $end
+$var wire 1 i rffull $end
+$var wire 1 j rfempty $end
+$var wire 8 k wfdout [7:0] $end
+$var wire 1 l wfwe $end
+$var wire 1 m wffull $end
+$var wire 1 n wfempty $end
+$var wire 1 o tirq $end
+$var wire 1 p wfov $end
+$var reg 2 q state [1:0] $end
+$var reg 3 r bcnt [2:0] $end
+$var wire 1 s wb_acc $end
+$var wire 1 t wb_wr $end
+$var wire 1 u spie $end
+$var wire 1 v spe $end
+$var wire 1 w dwom $end
+$var wire 1 x mstr $end
+$var wire 1 y cpol $end
+$var wire 1 z cpha $end
+$var wire 2 { spr [1:0] $end
+$var wire 2 | icnt [1:0] $end
+$var wire 2 } spre [1:0] $end
+$var wire 4 ~ espr [3:0] $end
+$var wire 1 "! wr_spsr $end
+$var reg 1 "" spif $end
+$var reg 1 "# wcol $end
+$var reg 12 "$ clkcnt [11:0] $end
+$var wire 1 "% ena $end
+$var reg 2 "& tcnt [1:0] $end
+
+$scope module rfifo $end
+$var wire 1 R clk $end
+$var wire 1 "' rst $end
+$var wire 1 "( clr $end
+$var wire 8 ") din [8:1] $end
+$var wire 1 "* we $end
+$var wire 8 e dout [8:1] $end
+$var wire 1 h re $end
+$var wire 1 i full $end
+$var wire 1 j empty $end
+$var reg 2 "+ wp [1:0] $end
+$var reg 2 ", rp [1:0] $end
+$var wire 2 "- wp_p1 [1:0] $end
+$var wire 2 ". wp_p2 [1:0] $end
+$var wire 2 "/ rp_p1 [1:0] $end
+$var reg 1 "0 gb $end
+$upscope $end
+
+
+$scope module wfifo $end
+$var wire 1 R clk $end
+$var wire 1 "' rst $end
+$var wire 1 "( clr $end
+$var wire 8 X din [8:1] $end
+$var wire 1 l we $end
+$var wire 8 k dout [8:1] $end
+$var wire 1 "1 re $end
+$var wire 1 m full $end
+$var wire 1 n empty $end
+$var reg 2 "2 wp [1:0] $end
+$var reg 2 "3 rp [1:0] $end
+$var wire 2 "4 wp_p1 [1:0] $end
+$var wire 2 "5 wp_p2 [1:0] $end
+$var wire 2 "6 rp_p1 [1:0] $end
+$var reg 1 "7 gb $end
+$upscope $end
+
+$upscope $end
+
+$upscope $end
+
+
+$scope module top $end
+
+$scope begin unnamed$$_vcs_2 $end
+$upscope $end
+
+$upscope $end
+
+$enddefinitions $end
+
+#0
+$dumpvars
+1'
+0&
+0(
+1$
+bxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx !
+b11111111111111111111111111111111 #
+b00000000000000000000000000000000 %
+b01000010000001111100110001000111 "
+0+
+b00000000000000000000000000001010 )
+15
+b00000000000000000000000000000000 2
+b00000000000000000000000000000101 1
+b00000000000000000000000000000000 6
+b00000000000000000000000000000000 7
+b00000000000000000000000000001010 3
+b00000000000000000000000000000101 4
+b00000000 >
+b00000000 =
+b00000000000000000000000000000000 ;
+b00000000 M
+b00000000 N
+b00000000 O
+b00000000 K
+b00000000 L
+b00000000 P
+b10101010 Q
+xZ
+x"%
+x[
+xg
+x\
+x""
+xd
+xw
+xx
+xu
+xv
+xy
+xz
+xo
+0s
+0t
+x"#
+0p
+xf
+0"!
+bxxx r
+bxxxxxxxxxxxx "$
+bxxxxxxxx Y
+bxxxxxxxx `
+bxxxxxxxx b
+bxx00xxxx a
+bxx q
+bxx "&
+bxx {
+bxx }
+bxxxx ~
+bxx |
+bxxxxxxxx c
+x"0
+bxx ",
+bxx "/
+bxx ".
+bxx "+
+bxx "-
+x"7
+bxx "3
+bxx "6
+bxx "5
+bxx "2
+bxx "4
+xG
+xF
+b000 V
+b00000000 X
+xm
+xn
+xi
+xj
+x"(
+bxxxxxxxx ")
+x"*
+bxxxxxxxx e
+0h
+0l
+bxxxxxxxx k
+x"1
+0T
+0U
+0W
+0_
+x^
+0,
+1*
+00
+0@
+0S
+0R
+0E
+x.
+x-
+x]
+0/
+0?
+09
+08
+0:
+0<
+1J
+0H
+0A
+0C
+xB
+0I
+0D
+1"'
+$end
+#5000
+1+
+1R
+1E
+10
+b00000000000000000000000000000100 1
+0Z
+b111111111111 "$
+0"%
+0f
+0"1
+0g
+0"*
+0o
+1,
+1S
+0"'
+1@
+b00 "+
+b10 ".
+b01 "-
+b00 ",
+b01 "/
+b00 "2
+b10 "5
+b01 "4
+b00 "3
+b01 "6
+#10000
+0+
+0R
+0E
+00
+19
+1T
+1:
+1U
+1s
+1<
+1W
+b01110000 =
+b01110000 X
+1t
+#15000
+1+
+1R
+1E
+10
+b00000000000000000000000000000011 1
+b00010000 `
+0w
+1x
+0u
+0v
+0y
+0z
+b00 {
+b00 }
+b0000 ~
+1"(
+b00000000 b
+b00 |
+0d
+1]
+1.
+0""
+0"#
+b00 q
+b000 r
+b00000000 c
+b00000000 ")
+0^
+0B
+0\
+0-
+0"0
+0"7
+b0000xxxx a
+1j
+0i
+1n
+0m
+b00000101 a
+#20000
+0+
+0R
+0E
+00
+#25000
+1+
+1R
+1E
+10
+b00000000000000000000000000000010 1
+b00010000 Y
+b00010000 >
+0[
+b000000000000 "$
+1"%
+b00 "&
+#30000
+0+
+0R
+0E
+00
+#35000
+1+
+1R
+1E
+10
+b00000000000000000000000000000001 1
+#40000
+0+
+0R
+0E
+00
+#45000
+1+
+1R
+1E
+10
+b00000000000000000000000000000000 1
+#50000
+0+
+0R
+0E
+00
+#55000
+1+
+1R
+1E
+10
+0,
+0S
+1"'
+0@
+#60000
+0+
+0R
+0E
+00
+#65000
+1+
+1R
+1E
+10
+b01110000 `
+1w
+1v
+0"(
+1Z
+1?
+#70000
+0+
+0R
+0E
+00
+#75000
+1+
+1R
+1E
+10
+b01110000 Y
+b01110000 >
+0Z
+0?
+b111 r
+bxxxxxxxx c
+bxxxxxxxx ")
+x^
+xB
+09
+0T
+0s
+0:
+0U
+0<
+0W
+b00000000 =
+b00000000 X
+0t
+#80000
+0+
+0R
+0E
+00
+19
+1T
+1:
+1U
+1s
+b00000000000000000000000000000100 ;
+b100 V
+1<
+1W
+b00000001 =
+b00000001 X
+1t
+#85000
+1+
+1R
+1E
+10
+1d
+0]
+0.
+b00000000 Y
+b00000000 >
+1Z
+1?
+1I
+1D
+0D
+#90000
+0+
+0R
+0E
+00
+#95000
+1+
+1R
+1E
+10
+b00000001 Y
+b00000001 >
+0Z
+0?
+09
+0T
+0s
+0:
+0U
+b00000000000000000000000000000000 ;
+b000 V
+0<
+0W
+b00000000 =
+b00000000 X
+0t
+#100000
+0+
+0R
+0E
+00
+19
+1T
+1:
+1U
+1s
+b00000000000000000000000000000010 ;
+b010 V
+1<
+1W
+1t
+#105000
+1+
+1R
+1E
+10
+bxxxxxxxx Y
+b00000000 >
+1Z
+1?
+1l
+#110000
+0+
+0R
+0E
+00
+#115000
+1+
+1R
+1E
+10
+0Z
+0?
+b00000000 k
+b01 "2
+b11 "5
+b10 "4
+0l
+0n
+b00000001 a
+09
+0T
+0s
+0:
+0U
+b00000000000000000000000000000000 ;
+b000 V
+0<
+0W
+0t
+#120000
+0+
+0R
+0E
+00
+#125000
+1+
+1R
+1E
+10
+b01110000 Y
+b01110000 >
+1f
+1"1
+b00000000 c
+b00000000 ")
+0^
+0B
+b01 q
+#130000
+0+
+0R
+0E
+00
+#135000
+1+
+1R
+1E
+10
+0f
+0"1
+b11 q
+1\
+1-
+b01 "3
+b10 "6
+bxxxxxxxx k
+1A
+1_
+1n
+b00000101 a
+#140000
+0+
+0R
+0E
+00
+#145000
+1+
+1R
+1E
+10
+b00000001 c
+b00000001 ")
+b110 r
+b01 q
+0\
+0-
+#150000
+0+
+0R
+0E
+00
+#155000
+1+
+1R
+1E
+10
+b11 q
+1\
+1-
+0A
+0_
+#160000
+0+
+0R
+0E
+00
+#165000
+1+
+1R
+1E
+10
+b00000010 c
+b00000010 ")
+b101 r
+b01 q
+0\
+0-
+#170000
+0+
+0R
+0E
+00
+#175000
+1+
+1R
+1E
+10
+b11 q
+1\
+1-
+1A
+1_
+#180000
+0+
+0R
+0E
+00
+#185000
+1+
+1R
+1E
+10
+b00000101 c
+b00000101 ")
+b100 r
+b01 q
+0\
+0-
+#190000
+0+
+0R
+0E
+00
+#195000
+1+
+1R
+1E
+10
+b11 q
+1\
+1-
+0A
+0_
+#200000
+0+
+0R
+0E
+00
+#205000
+1+
+1R
+1E
+10
+b00001010 c
+b00001010 ")
+b011 r
+b01 q
+0\
+0-
+#210000
+0+
+0R
+0E
+00
+#215000
+1+
+1R
+1E
+10
+b11 q
+1\
+1-
+1A
+1_
+#220000
+0+
+0R
+0E
+00
+#225000
+1+
+1R
+1E
+10
+b00010101 c
+b00010101 ")
+b010 r
+b01 q
+0\
+0-
+#230000
+0+
+0R
+0E
+00
+#235000
+1+
+1R
+1E
+10
+b11 q
+1\
+1-
+0A
+0_
+#240000
+0+
+0R
+0E
+00
+#245000
+1+
+1R
+1E
+10
+b00101010 c
+b00101010 ")
+b001 r
+b01 q
+0\
+0-
+#250000
+0+
+0R
+0E
+00
+#255000
+1+
+1R
+1E
+10
+b11 q
+1\
+1-
+1A
+1_
+#260000
+0+
+0R
+0E
+00
+#265000
+1+
+1R
+1E
+10
+b01010101 c
+b01010101 ")
+b000 r
+b01 q
+0\
+0-
+#270000
+0+
+0R
+0E
+00
+#275000
+1+
+1R
+1E
+10
+b11 q
+1\
+1-
+0A
+0_
+1C
+0I
+#280000
+0+
+0R
+0E
+00
+19
+1T
+1:
+1U
+1s
+b00000000000000000000000000000100 ;
+b100 V
+1<
+1W
+1t
+#285000
+1+
+1R
+1E
+10
+0d
+1]
+1.
+b00000001 Y
+b00000001 >
+1Z
+1?
+1g
+1"*
+1o
+b10101010 c
+b10101010 ")
+1^
+1B
+b111 r
+b00 q
+0\
+0-
+#290000
+0+
+0R
+0E
+00
+#295000
+1+
+1R
+1E
+10
+b00000000 Y
+b00000000 >
+0Z
+0?
+1""
+0g
+0"*
+0o
+bxxxxxxxx c
+bxxxxxxxx ")
+x^
+xB
+b10101010 e
+b01 "+
+b11 ".
+b10 "-
+b10000101 a
+0j
+b10000100 a
+09
+0T
+0s
+0:
+0U
+b00000000000000000000000000000000 ;
+b000 V
+0<
+0W
+0t
+#300000
+0+
+0R
+0E
+00
+19
+1T
+1:
+1U
+1s
+b00000000000000000000000000000010 ;
+b010 V
+#305000
+1+
+1R
+1E
+10
+b10101010 Y
+b10101010 >
+1Z
+1?
+1h
+#310000
+0+
+0R
+0E
+00
+#315000
+1+
+1R
+1E
+10
+0Z
+0?
+b01 ",
+b10 "/
+bxxxxxxxx e
+0h
+1j
+b10000101 a
+09
+0T
+0s
+0:
+0U
+b00000000000000000000000000000000 ;
+b000 V
+#320000
+0+
+0R
+0E
+00
+#325000
+1+
+1R
+1E
+10
+b01110000 Y
+b01110000 >
+#330000
+0+
+0R
+0E
+00
+#335000
+1+
+1R
+1E
+10
+#340000
+0+
+0R
+0E
+00
+#345000
+1+
+1R
+1E
+10
+#350000
+0+
+0R
+0E
+00
+#355000
+1+
+1R
+1E
+10
+#360000
+0+
+0R
+0E
+00
+#365000
+1+
+1R
+1E
+10
+#370000
+0+
+0R
+0E
+00
+#375000
+1+
+1R
+1E
+10
+#380000
+0+
+0R
+0E
+00
+#385000
+1+
+1R
+1E
+10
+#390000
+0+
+0R
+0E
+00
+#395000
+1+
+1R
+1E
+10
+#400000
+0+
+0R
+0E
+00
+#405000
+1+
+1R
+1E
+10
+#410000
+0+
+0R
+0E
+00
+#415000
+1+
+1R
+1E
+10
