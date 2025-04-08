@@ -9,6 +9,8 @@ class testbench extends uvm_env;
   spi_env spi;
   mc_sequencer mc_seqr;
 
+//Declare a handle for scoreboard
+  spi_scoreboard scoreboard;
 
   // Constructor - required syntax for UVM automation and utilities
   function new(string name, uvm_component parent = null);
@@ -28,6 +30,8 @@ class testbench extends uvm_env;
     spi = spi_env::type_id::create("spi", this);
     mc_seqr = mc_sequencer::type_id::create("mc_seqr", this);
 
+  // Create Scoreboard
+  scoreboard = spi_scoreboard::type_id::create("scoreboard", this);
   endfunction : build_phase
 
 
@@ -39,8 +43,12 @@ class testbench extends uvm_env;
     mc_seqr.spi_seqr =spi.slave_agent.seqr;
     mc_seqr.wb_seqr = wb.masters[0].sequencer;
 
+    //Scoreboard connection 
+    // TLM connections between spi and Scoreboard
+    spi.slave_agent.mon.spi_out.connect(scoreboard.spi_in);
 
-
+    // TLM connections between wb and Scoreboard
+    wb.masters[0].monitor.item_collected_port.connect(scoreboard.wb_in);
 
 
 
@@ -52,6 +60,3 @@ class testbench extends uvm_env;
 
 
 endclass : testbench
-
-
-

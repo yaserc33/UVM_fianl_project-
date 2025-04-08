@@ -40,18 +40,20 @@ class spi_scoreboard extends uvm_scoreboard;
 
     // Transaction Capturing - WB
     function void write_wb(wb_transaction t);
-        // Ignore WB dummy writes (for reads)
-        if (t.op_type == wb_write && t.din == 8'h00) begin
-            `uvm_info("SCOREBOARD", "Ignoring WB Dummy Write for Read Transaction", UVM_LOW)
-            return;
-        end
-
+       
+        // Ignore WB dummy writes or reads
+        if (t.valid_sb == 1'b1) begin
+        //     `uvm_info("SCOREBOARD", "Ignoring WB Dummy Write for Read Transaction", UVM_LOW)
+        //     return;
+        // end
+        // else begin 
         `uvm_info("SCOREBOARD", $sformatf("Received WB Transaction: %s", t.sprint()), UVM_MEDIUM)
         wb_queue.push_back(t);
                   
              total_wb_transactions++;
         total_packets_received++;
         compare_transactions();
+        end 
     endfunction
 
     // Compare Transactions
@@ -59,13 +61,22 @@ class spi_scoreboard extends uvm_scoreboard;
         if (spi_queue.size() > 0 && wb_queue.size() > 0) begin
             spi_transaction spi_pkt = spi_queue.pop_front();
             wb_transaction wb_pkt = wb_queue.pop_front();
-
+            if (wb_pkt.op_type==wb_write)begin 
             if (spi_pkt.data_in == wb_pkt.dout) begin
                 `uvm_info("SCOREBOARD", $sformatf("MATCH: SPI = %h, WB = %h", spi_pkt.data_in, wb_pkt.dout), UVM_HIGH)
                 total_matched_packets++;
-            end else begin
+            end
+            end  
+            else if  (wb_pkt.op_type==wb_read)begin 
+            if (spi_pkt.data_out == wb_pkt.din) begin
+                `uvm_info("SCOREBOARD", $sformatf("MATCH: SPI = %h, WB = %h", spi_pkt.data_in, wb_pkt.dout), UVM_HIGH)
+                total_matched_packets++;
+            end
+            end 
+            else begin
                 `uvm_error("SCOREBOARD", $sformatf("MISMATCH: SPI = %h, WB = %h", spi_pkt.data_in, wb_pkt.dout))
                 total_wrong_packets++;
+               
             end
         end
     endfunction

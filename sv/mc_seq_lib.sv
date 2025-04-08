@@ -37,6 +37,7 @@ class mc_seq extends uvm_sequence;
 
   // declare the sequences to run
   wb_read_seq wb_seq;
+   wb_write_seq wb_seq_w;
     // wb_write_seq wb_seq;
   spi_slave_response_seq spi_seq;
 
@@ -45,9 +46,11 @@ class mc_seq extends uvm_sequence;
 
     // create sequence instances before starting
     wb_seq = wb_read_seq::type_id::create("wb_seq");
+     wb_seq_w = wb_write_seq::type_id::create("wb_seq");
     // wb_seq = wb_write_seq::type_id::create("wb_seq");
     spi_seq = spi_slave_response_seq::type_id::create("spi_seq");
-
+     
+     wb_seq_w.start(p_sequencer.wb_seqr);
     fork
       wb_seq.start(p_sequencer.wb_seqr);
       spi_seq.start(p_sequencer.spi_seqr);

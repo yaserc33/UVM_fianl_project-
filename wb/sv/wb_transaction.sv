@@ -17,6 +17,7 @@ static int data_width=8;
   rand logic [DATA_WIDTH-1:0] din;
   logic [DATA_WIDTH-1:0] dout;
   rand op_type_enum op_type;
+   rand bit  valid_sb; 
 
 
 
@@ -27,6 +28,7 @@ static int data_width=8;
     `uvm_field_int(addr, UVM_DEFAULT)
     `uvm_field_int(din, UVM_DEFAULT)
     `uvm_field_int(dout, UVM_DEFAULT)
+    `uvm_field_int(valid_sb, UVM_DEFAULT)
     `uvm_object_utils_end
 
 
