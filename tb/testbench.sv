@@ -6,7 +6,8 @@ class testbench extends uvm_env;
 
   wb_env wb;
   clock_and_reset_env clk_rst;
-  spi_env spi;
+  spi_env spi1;
+  spi_env spi2;
   mc_sequencer mc_seqr;
 
 //Declare a handle for scoreboard
@@ -27,11 +28,12 @@ class testbench extends uvm_env;
 
     wb = wb_env::type_id::create("wb", this);
     clk_rst = clock_and_reset_env::type_id::create("clk_rst", this);
-    spi = spi_env::type_id::create("spi", this);
+    spi1 = spi_env::type_id::create("spi1", this);
+    spi2 = spi_env::type_id::create("spi2", this);
     mc_seqr = mc_sequencer::type_id::create("mc_seqr", this);
 
   // Create Scoreboard
-   sb = scoreboard::type_id::create("sb", this);
+  sb = scoreboard::type_id::create("sb", this);
   endfunction : build_phase
 
 
@@ -40,15 +42,16 @@ class testbench extends uvm_env;
     super.connect_phase(phase);
 
     //sequencers connection to mc_seqr
-    mc_seqr.spi_seqr =spi.slave_agent.seqr;
+    mc_seqr.spi1_seqr =spi1.slave_agent.seqr;
+    mc_seqr.spi2_seqr =spi2.slave_agent.seqr;
     mc_seqr.wb_seqr = wb.masters[0].sequencer;
 
     //Scoreboard connection 
     // TLM connections between spi and Scoreboard
-    spi.slave_agent.mon.spi_out.connect(sb.spi_in);
-
+    
+    //spi.slave_agent.mon.spi_out.connect(sb.spi_in); 
     // TLM connections between wb and Scoreboard
-    wb.masters[0].monitor.item_collected_port.connect(sb.wb_in);
+    //wb.masters[0].monitor.item_collected_port.connect(sb.wb_in);
 
 
 

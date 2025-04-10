@@ -57,7 +57,7 @@ class wb_empty_seq extends slave_base_seq;
     super.new(name);
   endfunction
 
-  `uvm_object_utils(wb_write_seq)
+  `uvm_object_utils(wb_empty_seq)
 
   virtual task body();
     `uvm_info(get_type_name(), "Executing sequence", UVM_LOW)

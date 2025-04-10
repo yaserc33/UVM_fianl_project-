@@ -24,7 +24,8 @@ module top;
   initial begin
     wb_vif_config::set(null,"*.tb.wb.*","vif", hw_top.wif);
     clock_and_reset_vif_config::set(null , "*clk_rst*" , "vif" , hw_top.cr_if);
-    spi_vif_config::set(null,"*spi.slave_agent.*","vif", hw_top.sif);
+    spi_vif_config::set(null,"*spi1.slave_agent.*","vif", hw_top.sif1);
+    spi_vif_config::set(null,"*spi2.slave_agent.*","vif", hw_top.sif2);
 
     run_test();
   end

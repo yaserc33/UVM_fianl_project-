@@ -5,8 +5,10 @@ logic [31:0]  clock_period;
 logic         run_clock;
 logic         clock;
 logic         reset;
-logic sclk ;
-logic cs ;
+logic sclk1 ;
+logic cs1 ;
+logic sclk2 ;
+logic cs2 ;
 
 //interfaces
 
@@ -23,12 +25,20 @@ wb_if wif (
             .rst_n(reset));
 
 
-spi_if sif (
+spi_if sif1 (
     .clock(clock),
     .reset(reset),
-    .sclk(sclk),
-    .cs(cs)
+    .sclk(sclk1),
+    .cs(cs1)
   );
+
+spi_if sif2 (
+    .clock(clock),
+    .reset(reset),
+    .sclk(sclk2),
+    .cs(cs2)
+  );
+
 
 
 
@@ -43,28 +53,45 @@ spi_if sif (
 
 
 
-//SPI module
-simple_spi#(.SS_WIDTH(1)) spi1( 
-  // SS_WIDTH indcate how many slave for spi  master
-  // 8bit WISHBONE bus slave interface
-  .clk_i(clock),           // clock
-  .rst_i(reset),           // reset (synchronous active high)
-  .cyc_i(wif.cyc),         // cycle
-  .stb_i(wif.stb),         // strobe
-  .adr_i(wif.addr[2:0]),   // address
-  .we_i(wif.we),          // write enable
-  .dat_i(wif.din),         // data input
-  .dat_o(wif.dout),         // data output
-  .ack_o(wif.ack),         // normal bus termination
-  .inta_o(wif.inta),        // interrupt output
+wire [31:0] wb_m2s_dat_net;
+wire [31:0] wb_s2m_dat_net;
 
-  // SPI interface
-  .sck_o(sclk),         // serial clock output
-  .ss_o(cs),          // slave select (active low)
-  .mosi_o(sif.mosi),        // MasterOut SlaveIN
-  .miso_i(sif.miso)         // MasterIn SlaveOut
+assign wb_m2s_dat_net = {24'b0 , wif.din}; //our wb uvc support one byte data_in  for now
+assign wb_s2m_dat_net= {24'b0 , wif.dout}; //our wb uvc support one byte data_out  for now
 
+
+
+ wb_soc_top wb_top (
+
+    .wb_clk(clock),
+    .wb_rst(reset),
+    .wb_m2s_adr(wif.addr),
+    .wb_m2s_dat(wb_m2s_dat_net), 
+    .wb_m2s_sel(), // our wb uvc doesn't support sel for now  
+    .wb_m2s_we(wif.we),
+    .wb_m2s_cyc(wif.cyc),
+    .wb_m2s_stb(wif.stb),
+    .wb_s2m_dat(wb_s2m_dat_net), 
+    .wb_s2m_ack(wif.ack),
+  
+    // spi 1
+    .o_spi_1_sclk(sclk1),     
+    .o_spi_1_cs_n(cs1),     
+    .o_spi_1_mosi(sif1.mosi),     
+    .i_spi_1_miso(sif1.miso),     
+
+    // spi 2
+    .o_spi_2_sclk(sclk2),     
+    .o_spi_2_cs_n(cs2),     
+    .o_spi_2_mosi(sif2.mosi),     
+    .i_spi_2_miso(sif2.miso),     
+
+    // uart
+    .o_uart_tx(),
+    .i_uart_rx()
 );
+
+
 
 
 

@@ -397,7 +397,7 @@
 0 /mnt/NVME2/synopsys/vcs/W-2024.09-SP1/etc/uvm/../sv/spi_env.sv
 0 ../wb/sv/../sv/spi_env.sv
 0 ../clock_and_reset/sv/../sv/spi_env.sv
-50
+63
 +define+UVM_DIRECTC_OPTS
 +incdir+../clock_and_reset/sv
 +incdir+../dut
@@ -442,8 +442,21 @@ simv
 ../clock_and_reset/sv/clock_and_reset_pkg.sv
 ../spi/sv/spi_pkg.sv
 ../spi/sv/spi_if.sv
-../dut/fifo4.v
-../dut/spi.v
+../dut/spi/fifo4.v
+../dut/spi/simple_spi_top.v
+../dut/uart/raminfr.v
+../dut/uart/uart_defines.v
+../dut/uart/uart_sync_flops.v
+../dut/uart/uart_rfifo.v
+../dut/uart/uart_tfifo.v
+../dut/uart/uart_receiver.v
+../dut/uart/uart_transmitter.v
+../dut/uart/uart_regs.v
+../dut/uart/uart_wb.v
+../dut/uart/uart_top.v
+../dut/WishboneInterconnect/wb_mux.v
+../dut/WishboneInterconnect/wb_intercon.sv
+../dut/WishboneInterconnect/wb_soc_top.sv
 ../dut/clkgen.sv
 ../dut/hw_top.sv
 top.sv
@@ -566,11 +579,11 @@ BASH_FUNC_which%%=() {  ( alias;_ eval ${which_declare} ) | /usr/bin/which --tty
 ALE_HOME=/mnt/NVME2/synopsys/ale
 0
 0
-186
+199
 1743930063 test_lib.sv
-1744276983 testbench.sv
-1744276762 ../sv/mc_seq_lib.sv
-1743926005 ../sv/mc_sequencer.sv
+1744285350 testbench.sv
+1744295440 ../sv/mc_seq_lib.sv
+1744285493 ../sv/mc_sequencer.sv
 1744276567 ../sv/scoreboard.sv
 1744277779 ../spi/sv/../sv/spi_env.sv
 1744277878 ../spi/sv/../sv/spi_slave_agent.sv
@@ -593,12 +606,12 @@ ALE_HOME=/mnt/NVME2/synopsys/ale
 1742366163 ../clock_and_reset/sv/clock_and_reset_sequence_item.sv
 1742366163 ../clock_and_reset/sv/clock_and_reset_config.sv
 1742293250 ../wb/sv/../sv/wb_env.sv
-1742284610 ../wb/sv/../sv/wb_slave_seqs.sv
+1744294932 ../wb/sv/../sv/wb_slave_seqs.sv
 1742273437 ../wb/sv/../sv/wb_slave_agent.sv
 1742385834 ../wb/sv/../sv/wb_slave_monitor.sv
 1742288736 ../wb/sv/../sv/wb_slave_driver.sv
 1742273584 ../wb/sv/../sv/wb_slave_sequencer.sv
-1744275415 ../wb/sv/../sv/wb_master_seqs.sv
+1744295269 ../wb/sv/../sv/wb_master_seqs.sv
 1742270810 ../wb/sv/../sv/wb_master_agent.sv
 1744275305 ../wb/sv/../sv/wb_master_monitor.sv
 1742377466 ../wb/sv/../sv/wb_master_driver.sv
@@ -739,11 +752,24 @@ ALE_HOME=/mnt/NVME2/synopsys/ale
 1733289097 /mnt/NVME2/synopsys/vcs/W-2024.09-SP1/etc/uvm/macros/snps_macros.svp
 1733289097 /mnt/NVME2/synopsys/vcs/W-2024.09-SP1/etc/uvm/macros/uvm_version_defines.svh
 1733289098 /mnt/NVME2/synopsys/vcs/W-2024.09-SP1/etc/uvm/uvm_macros.svh
-1744276082 top.sv
-1744278073 ../dut/hw_top.sv
+1744285134 top.sv
+1744292012 ../dut/hw_top.sv
 1742366190 ../dut/clkgen.sv
-1742364102 ../dut/spi.v
-1742364101 ../dut/fifo4.v
+1744292446 ../dut/WishboneInterconnect/wb_soc_top.sv
+1744279317 ../dut/WishboneInterconnect/wb_intercon.sv
+1744279317 ../dut/WishboneInterconnect/wb_mux.v
+1744279317 ../dut/uart/uart_top.v
+1744279317 ../dut/uart/uart_wb.v
+1744279317 ../dut/uart/uart_regs.v
+1744279317 ../dut/uart/uart_transmitter.v
+1744279317 ../dut/uart/uart_receiver.v
+1744279317 ../dut/uart/uart_tfifo.v
+1744279317 ../dut/uart/uart_rfifo.v
+1744279317 ../dut/uart/uart_sync_flops.v
+1744279317 ../dut/uart/uart_defines.v
+1744279317 ../dut/uart/raminfr.v
+1744279317 ../dut/spi/simple_spi_top.v
+1744279317 ../dut/spi/fifo4.v
 1744277792 ../spi/sv/spi_if.sv
 1744277862 ../spi/sv/spi_pkg.sv
 1742366163 ../clock_and_reset/sv/clock_and_reset_pkg.sv
@@ -752,7 +778,7 @@ ALE_HOME=/mnt/NVME2/synopsys/ale
 1742283260 ../wb/sv/wb_pkg.sv
 1733289098 /mnt/NVME2/synopsys/vcs/W-2024.09-SP1/etc/uvm/uvm_pkg.sv
 1733285154 /mnt/NVME2/synopsys/vcs/W-2024.09-SP1/linux64/lib/vcsdstub.tab
-1742468624 filelist.f
+1744284964 filelist.f
 6
 1733289097 /mnt/NVME2/synopsys/vcs/W-2024.09-SP1/etc/uvm/dpi/uvm_dpi.cc
 1733287584 /mnt/NVME2/synopsys/vcs/W-2024.09-SP1/linux64/lib/vpdlogstub.o
@@ -760,5 +786,5 @@ ALE_HOME=/mnt/NVME2/synopsys/ale
 1733286010 /mnt/NVME2/synopsys/vcs/W-2024.09-SP1/linux64/lib/liberrorinf.so
 1733286000 /mnt/NVME2/synopsys/vcs/W-2024.09-SP1/linux64/lib/libsnpsmalloc.so
 1733285992 /mnt/NVME2/synopsys/vcs/W-2024.09-SP1/linux64/lib/libvfs.so
-1744278081 simv.daidir
+1744295448 simv.daidir
 -1 partitionlib

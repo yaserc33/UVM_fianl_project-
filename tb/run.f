@@ -29,7 +29,7 @@
 ############verbosity level###########
 //+UVM_VERBOSITY=UVM_LOW
 //+UVM_VERBOSITY=UVM_MEDIUM
-+UVM_VERBOSITY=UVM_HIGH
++UVM_VERBOSITY=UVM_FULL
 
 
 
