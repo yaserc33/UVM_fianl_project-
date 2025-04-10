@@ -59,16 +59,44 @@ class write_seq extends mc_seq;
         super.new(name);
     endfunction:new
 
-//declare the sequences you want to use
 
-wb_write_seq wb_write;   // SEQUENCE: wb_write_seq -  write byte to spi peripheral (addr 2 spi data register) then dumy read from data reg to empty the read fifo of the spi
+  // declare the sequences to run
+  wb_read_seq wb_seq;
+   wb_write_seq wb_seq_w;
+    // wb_write_seq wb_seq;
+  spi_slave_response_seq spi_seq;
 
-//in task body() do the SEQs in the targeted seqr
-virtual task body;
-`uvm_info(get_type_name(), "body of mc_sequence 🧑🏻‍⚖️" , UVM_FULL)
+  virtual task body();
+    `uvm_info(get_type_name(), "Body of mc_seq 🧑🏻‍⚖️", UVM_FULL)
 
-`uvm_do_on(wb_write, p_sequencer.wb_seqr)
-endtask:body
+    // create sequence instances before starting
+    wb_seq = wb_read_seq::type_id::create("wb_seq");
+    wb_seq_w = wb_write_seq::type_id::create("wb_seq");
+    // wb_seq = wb_write_seq::type_id::create("wb_seq");
+    spi_seq = spi_slave_response_seq::type_id::create("spi_seq");
+     
+    wb_seq_w.start(p_sequencer.wb_seqr);
+    fork
+      wb_seq.start(p_sequencer.wb_seqr);
+      spi_seq.start(p_sequencer.spi_seqr);
+    join
+
+  endtask : body
+
+
+
+
+
+// //declare the sequences you want to use
+
+// wb_write_seq wb_write;   // SEQUENCE: wb_write_seq -  write byte to spi peripheral (addr 2 spi data register) then dumy read from data reg to empty the read fifo of the spi
+
+// //in task body() do the SEQs in the targeted seqr
+// virtual task body;
+// `uvm_info(get_type_name(), "body of mc_sequence 🧑🏻‍⚖️" , UVM_FULL)
+
+// `uvm_do_on(wb_write, p_sequencer.wb_seqr)
+// endtask:body
 
 
 endclass: write_seq

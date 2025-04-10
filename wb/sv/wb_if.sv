@@ -12,12 +12,12 @@ bit we;  //write enable
 bit [7:0] din;
 bit [7:0] dout; 
 bit ack;
-
+bit valid_sb; // to till the scoreboard  wither the transaction is dummy or real  
 
 
 
 task  send_to_dut (wb_transaction tr);
-
+ 
 if (tr.op_type == wb_write)begin
 @(negedge clk);
 cyc <= 1;
@@ -32,7 +32,7 @@ stb <= 0;
 addr <= 0;
 we <= 0;
 din <= 0;
-
+valid_sb <=tr.valid_sb;
 end else if (tr.op_type == wb_read)begin
 
 @(negedge clk);
@@ -40,6 +40,7 @@ cyc <= 1;
 stb <= 1;
 addr <= tr.addr;
 we <= 0;
+valid_sb <=tr.valid_sb;
 @(posedge clk);
 
 wait(ack);
@@ -88,5 +89,4 @@ endtask :responsd_to_master
 
 
 endinterface : wb_if
-
 

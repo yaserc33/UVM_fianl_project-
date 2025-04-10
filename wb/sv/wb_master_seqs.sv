@@ -52,7 +52,7 @@ endclass : wb_base_seq
 // SEQUENCE: wb_write_seq -  write byte to spi peripheral (addr 2 spi data register) then dumy read from data reg to empty the read fifo of the spi
 //------------------------------------------------------------------------------
 
-class wb_write_seq extends wb_base_seq;
+class wb_write_seq extends wb_base_seq ;
 
   function new(string name = get_type_name());
     super.new(name);
@@ -63,34 +63,45 @@ class wb_write_seq extends wb_base_seq;
   virtual task body();
     `uvm_info(get_type_name(), "Executing sequence", UVM_LOW)
 
-
-
+    
+    
     `uvm_do_with(req,
                  { op_type == wb_write ; // we =1
                    addr == 0; // enable spi by setting the control register 
                    din==8'b01110000;  // 7:disable inta 6:en spi 5:reserved 4:set spi as master 3:S_polarity 2: S_phase  [1:0]: sclk=clk/2
+                   valid_sb==0;// indecate write sequnnace
+
                    })
 
 
-
+       
     `uvm_do_with(req,
                  { op_type == wb_write ; 
                    addr == 4;        //manually control CS singal through  register 4
                    din==8'b0000001;  // [0]:  1 to clear Cs     0 to set cs
+                   valid_sb==0;// indecate write sequnnace
+
                    })
-
-
-
+   
+   
+   
     `uvm_do_with(req,
                  { op_type == wb_write ; // write a random data to data register 
-                   addr == 2;})
+                   addr == 2;
+                   din==8'b0000011;
+                   valid_sb==1;// indecate write sequnnace
 
-    #160;  //stalling until spi send out the byte serially on mosi   
+                   }
+                )
 
+      #160;      //stalling until spi send out the byte serially on mosi   
+          
     `uvm_do_with(req,
                  { op_type == wb_write ; 
                    addr == 4; //manually control CS singal through  register 4
                    din==8'b0000000;  // [0]:  1 to clear Cs     0 to set cs
+                   valid_sb==0;// indecate write sequnnace
+
                    })
 
 
@@ -98,12 +109,14 @@ class wb_write_seq extends wb_base_seq;
 
     `uvm_do_with(req,
                  { op_type == wb_read ;
-                   addr == 2;} //sending read requist to data reg to empty the garbge from read fifo
-)
+                   addr == 2;
+                   valid_sb==0;// indecate write sequnnace
+                   } //sending read requist to data reg to empty the garbge from read fifo
+                )
+   
+   
 
-
-
-    //    `uvm_info(get_type_name(), $sformatf("wb WRITE ADDRESS:%0d  DATA:%h", req.addr, req.din), UVM_MEDIUM)
+//    `uvm_info(get_type_name(), $sformatf("wb WRITE ADDRESS:%0d  DATA:%h", req.addr, req.din), UVM_MEDIUM)
 
   endtask : body
 
@@ -113,7 +126,7 @@ endclass : wb_write_seq
 
 
 //------------------------------------------------------------------------------
-// SEQUENCE: wb_read_seq -  sendying  a dumy write then  send read byte read from spi peripheral (addr 3) , need input from spi slave 
+// SEQUENCE: wb_read__seq -  sendying  a dumy write then  send read byte read from spi peripheral (addr 3)
 //------------------------------------------------------------------------------
 class wb_read_seq extends wb_base_seq;
 
@@ -130,6 +143,7 @@ class wb_read_seq extends wb_base_seq;
                     { op_type == wb_write ; // we =1
                       addr == 0; // enable spi by setting the control register 
                       din==8'b01110000;  // 7:disable inta 6:en spi 5:reserved 4:set spi as master 3:S_polarity 2: S_phase  [1:0]: sclk=clk/2
+                     valid_sb==0;// indecate read sequnnace
                       })
 
 
@@ -138,13 +152,17 @@ class wb_read_seq extends wb_base_seq;
                     { op_type == wb_write ; 
                       addr == 4;        //manually control CS singal through  register 4
                       din==8'b0000001;  // [0]:  1 to clear Cs     0 to set cs
+                      valid_sb==0;// indecate read sequnnace
                       })
 
 
 
-        `uvm_do_with(req,
+            `uvm_do_with(req,
                     { op_type == wb_write ; // damy write to data register 
-                      addr == 2;})
+                      addr == 2;
+                      din==8'b000000;
+                      valid_sb==0;// indecate read sequnnace
+                      })
 
         #160;  //stalling until spi send out the byte serially on mosi   
 
@@ -152,6 +170,7 @@ class wb_read_seq extends wb_base_seq;
                     { op_type == wb_write ; 
                       addr == 4; //manually control CS singal through  register 4
                       din==8'b0000000;  // [0]:  1 to clear Cs     0 to set cs
+                      valid_sb==0;// indecate read sequnnace
                       })
 
 
@@ -159,7 +178,10 @@ class wb_read_seq extends wb_base_seq;
 
         `uvm_do_with(req,
                     { op_type == wb_read ;
-                      addr == 2;} //read requist to collect the data from spi read fifo
+                      addr == 2;
+                      din==8'b00000111;
+                      valid_sb==1;// indecate read sequnnace
+                      } //read requist to collect the data from spi read fifo
     )
 
 
@@ -170,10 +192,11 @@ endclass : wb_read_seq
 
 
 
+
 //------------------------------------------------------------------------------
 // SEQUENCE: wb_polling_seq -  the master will read continuously the stuts rgister of the spi if the spi fifo is not empty then cpu will send a read requist
 //------------------------------------------------------------------------------
-class wb_polling_seq extends wb_base_seq;
+class wb_polling_seq extends wb_base_seq ;
 
   function new(string name = get_type_name());
     super.new(name);
@@ -184,18 +207,19 @@ class wb_polling_seq extends wb_base_seq;
   virtual task body();
     `uvm_info(get_type_name(), "Executing sequence", UVM_LOW)
 
-    // while (true)begin
-    `uvm_do_with(req, { op_type == wb_read ;  addr == 1;})
+     // while (true)begin
+             `uvm_do_with(req,
+                  { op_type == wb_read ;  addr == 1;})
 
 
-    // if ()
-    //    breake;
+           // if ()
+        //    breake;
     //  end
+        
+            // rsp.print();
 
-    // rsp.print();
-
-    // `uvm_do_with(req,
-    //             { op_type == wb_read ;  addr == 2;})
+      // `uvm_do_with(req,
+      //             { op_type == wb_read ;  addr == 2;})
 
 
 
@@ -210,7 +234,7 @@ endclass : wb_polling_seq
 //------------------------------------------------------------------------------
 // SEQUENCE: wb_all_address_seq -  do random transacrtion (read or wirte) to all the address
 //------------------------------------------------------------------------------
-class wb_all_address_seq extends wb_base_seq;
+class wb_all_address_seq extends wb_base_seq ;
 
   function new(string name = get_type_name());
     super.new(name);
@@ -222,9 +246,10 @@ class wb_all_address_seq extends wb_base_seq;
     `uvm_info(get_type_name(), "Executing sequence", UVM_LOW)
 
 
-    for (int i = 0; i < 255; ++i) `uvm_do_with(req, { addr == i;})
-
-
+for (int i=0; i<255; ++i) 
+    `uvm_do_with(req,{ addr == i;})
+                
+  
 
 
 

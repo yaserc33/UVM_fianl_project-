@@ -5,7 +5,7 @@ class spi_env extends uvm_env;
   spi_slave_agent slave_agent;
 
   
-  protected int unsigned  enable_master = 1; // Master ON
+  protected int unsigned  enable_master = 0; // Master ON
   protected int unsigned  enable_slave = 1;  // Slave ON
 
   `uvm_component_utils_begin(spi_env)

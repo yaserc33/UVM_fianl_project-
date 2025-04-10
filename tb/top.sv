@@ -13,6 +13,7 @@ module top;
   import spi_pkg::*;
   
   
+  `include "../sv/scoreboard.sv"
   `include "../sv/mc_sequencer.sv"
   `include "../sv/mc_seq_lib.sv"
   `include "testbench.sv"

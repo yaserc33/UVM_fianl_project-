@@ -5,6 +5,8 @@ logic [31:0]  clock_period;
 logic         run_clock;
 logic         clock;
 logic         reset;
+logic sclk ;
+logic cs ;
 
 //interfaces
 
@@ -23,7 +25,9 @@ wb_if wif (
 
 spi_if sif (
     .clock(clock),
-    .reset(reset)
+    .reset(reset),
+    .sclk(sclk),
+    .cs(cs)
   );
 
 
@@ -55,8 +59,8 @@ simple_spi#(.SS_WIDTH(1)) spi1(
   .inta_o(wif.inta),        // interrupt output
 
   // SPI interface
-  .sck_o(sif.sclk),         // serial clock output
-  .ss_o(sif.cs),          // slave select (active low)
+  .sck_o(sclk),         // serial clock output
+  .ss_o(cs),          // slave select (active low)
   .mosi_o(sif.mosi),        // MasterOut SlaveIN
   .miso_i(sif.miso)         // MasterIn SlaveOut
 
