@@ -1,6 +1,6 @@
 psSimBaseName                      	simv
 psLogFileName                      	NULL
-psDaiDir                           	/home/Yasir_Alqulayti/DV/uvm/project_spi/tb/simv.daidir
+psDaiDir                           	/home/Rahaf_Alqahtani/VD_labs/poject/last_file /UVM_fianl_project-/tb/simv.daidir
 destPath                           	csrc/
 fSharedMasterElab                  	0
 fHsimPCSharedLibSpecified          	0
@@ -30,7 +30,7 @@ fHsimTaskFuncXmrsDbg               	0
 fHsimAllTaskFuncXmrs               	0
 fHsimDoXmrProcessing               	1
 fNoMergeDelays                     	0
-uGlblTimeUnit                      	7
+uGlblTimeUnit                      	4
 fHsimAllMtm                        	0
 fSimprofileNew                     	0
 fFsimFlag                          	0
