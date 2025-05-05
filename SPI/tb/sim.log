@@ -1,0 +1,428 @@
+Command: /home/Rahaf_Alqahtani/VD_labs/poject/spi_final/UVM_fianl_project-/tb/./simv -l sim.log +UVM_TESTNAME=wb_write_test +UVM_VERBOSITY=UVM_HIGH -timescale 1ns/1ns
+Chronologic VCS simulator copyright 1991-2024
+Contains Synopsys proprietary information.
+Compiler version W-2024.09-SP1_Full64; Runtime version W-2024.09-SP1_Full64;  May  5 09:16 2025
+----------------------------------------------------------------
+UVM-1.1d.Synopsys
+(C) 2007-2013 Mentor Graphics Corporation
+(C) 2007-2013 Cadence Design Systems, Inc.
+(C) 2006-2013 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO @ 0: reporter [RNTST] Running test wb_write_test...
+UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+--------------------------------------------------------------------------
+Name                           Type                       Size  Value     
+--------------------------------------------------------------------------
+uvm_test_top                   wb_write_test              -     @470      
+  tb                           testbench                  -     @487      
+    clk_rst                    clock_and_reset_env        -     @510      
+      agent                    clock_and_reset_agent      -     @647      
+        driver                 clock_and_reset_driver     -     @658      
+          rsp_port             uvm_analysis_port          -     @673      
+            recording_detail   uvm_verbosity              32    UVM_FULL  
+          seq_item_port        uvm_seq_item_pull_port     -     @665      
+            recording_detail   uvm_verbosity              32    UVM_FULL  
+          recording_detail     uvm_verbosity              32    UVM_FULL  
+        sequencer              clock_and_reset_sequencer  -     @681      
+          rsp_export           uvm_analysis_export        -     @688      
+            recording_detail   uvm_verbosity              32    UVM_FULL  
+          seq_item_export      uvm_seq_item_pull_imp      -     @782      
+            recording_detail   uvm_verbosity              32    UVM_FULL  
+          recording_detail     uvm_verbosity              32    UVM_FULL  
+          arbitration_queue    array                      0     -         
+          lock_queue           array                      0     -         
+          num_last_reqs        integral                   32    'd1       
+          num_last_rsps        integral                   32    'd1       
+        recording_detail       uvm_verbosity              32    UVM_FULL  
+      recording_detail         uvm_verbosity              32    UVM_FULL  
+    mc_seqr                    mc_sequencer               -     @531      
+      rsp_export               uvm_analysis_export        -     @538      
+        recording_detail       uvm_verbosity              32    UVM_FULL  
+      seq_item_export          uvm_seq_item_pull_imp      -     @632      
+        recording_detail       uvm_verbosity              32    UVM_FULL  
+      recording_detail         uvm_verbosity              32    UVM_FULL  
+      arbitration_queue        array                      0     -         
+      lock_queue               array                      0     -         
+      num_last_reqs            integral                   32    'd1       
+      num_last_rsps            integral                   32    'd1       
+    spi1                       spi_env                    -     @517      
+      slave_agent              spi_slave_agent            -     @803      
+        drv                    spi_slave_driver           -     @817      
+          rsp_port             uvm_analysis_port          -     @832      
+            recording_detail   uvm_verbosity              32    UVM_FULL  
+          seq_item_port        uvm_seq_item_pull_port     -     @824      
+            recording_detail   uvm_verbosity              32    UVM_FULL  
+          recording_detail     uvm_verbosity              32    UVM_FULL  
+        mon                    spi_slave_monitor          -     @949      
+          spi_out              uvm_analysis_port          -     @956      
+            recording_detail   uvm_verbosity              32    UVM_FULL  
+          recording_detail     uvm_verbosity              32    UVM_FULL  
+        seqr                   spi_slave_sequencer        -     @840      
+          rsp_export           uvm_analysis_export        -     @847      
+            recording_detail   uvm_verbosity              32    UVM_FULL  
+          seq_item_export      uvm_seq_item_pull_imp      -     @941      
+            recording_detail   uvm_verbosity              32    UVM_FULL  
+          recording_detail     uvm_verbosity              32    UVM_FULL  
+          arbitration_queue    array                      0     -         
+          lock_queue           array                      0     -         
+          num_last_reqs        integral                   32    'd1       
+          num_last_rsps        integral                   32    'd1       
+        is_active              uvm_active_passive_enum    1     UVM_ACTIVE
+        recording_detail       uvm_verbosity              32    UVM_FULL  
+      enable_master            integral                   32    'h0       
+      enable_slave             integral                   32    'h1       
+      recording_detail         uvm_verbosity              32    UVM_FULL  
+    spi2                       spi_env                    -     @524      
+      slave_agent              spi_slave_agent            -     @974      
+        drv                    spi_slave_driver           -     @988      
+          rsp_port             uvm_analysis_port          -     @1003     
+            recording_detail   uvm_verbosity              32    UVM_FULL  
+          seq_item_port        uvm_seq_item_pull_port     -     @995      
+            recording_detail   uvm_verbosity              32    UVM_FULL  
+          recording_detail     uvm_verbosity              32    UVM_FULL  
+        mon                    spi_slave_monitor          -     @1120     
+          spi_out              uvm_analysis_port          -     @1127     
+            recording_detail   uvm_verbosity              32    UVM_FULL  
+          recording_detail     uvm_verbosity              32    UVM_FULL  
+        seqr                   spi_slave_sequencer        -     @1011     
+          rsp_export           uvm_analysis_export        -     @1018     
+            recording_detail   uvm_verbosity              32    UVM_FULL  
+          seq_item_export      uvm_seq_item_pull_imp      -     @1112     
+            recording_detail   uvm_verbosity              32    UVM_FULL  
+          recording_detail     uvm_verbosity              32    UVM_FULL  
+          arbitration_queue    array                      0     -         
+          lock_queue           array                      0     -         
+          num_last_reqs        integral                   32    'd1       
+          num_last_rsps        integral                   32    'd1       
+        is_active              uvm_active_passive_enum    1     UVM_ACTIVE
+        recording_detail       uvm_verbosity              32    UVM_FULL  
+      enable_master            integral                   32    'h0       
+      enable_slave             integral                   32    'h1       
+      recording_detail         uvm_verbosity              32    UVM_FULL  
+    spiref                     spi_module                 -     @640      
+      myscoreboard             scoreboard                 -     @1165     
+        ref_in                 uvm_analysis_imp_ref       -     @1188     
+          recording_detail     uvm_verbosity              32    UVM_FULL  
+        spi_in1                uvm_analysis_imp_spi1      -     @1172     
+          recording_detail     uvm_verbosity              32    UVM_FULL  
+        spi_in2                uvm_analysis_imp_spi2      -     @1180     
+          recording_detail     uvm_verbosity              32    UVM_FULL  
+        recording_detail       uvm_verbosity              32    UVM_FULL  
+      sref_model               wb_x_spi_module            -     @1142     
+        ref_analysis_port      uvm_analysis_port          -     @1149     
+          recording_detail     uvm_verbosity              32    UVM_FULL  
+        wb_in                  uvm_analysis_imp_wb        -     @1157     
+          recording_detail     uvm_verbosity              32    UVM_FULL  
+        recording_detail       uvm_verbosity              32    UVM_FULL  
+      recording_detail         uvm_verbosity              32    UVM_FULL  
+    wb                         wb_env                     -     @503      
+      masters[0]               wb_master_agent            -     @1199     
+        driver                 wb_master_driver           -     @1338     
+          rsp_port             uvm_analysis_port          -     @1353     
+            recording_detail   uvm_verbosity              32    UVM_FULL  
+          seq_item_port        uvm_seq_item_pull_port     -     @1345     
+            recording_detail   uvm_verbosity              32    UVM_FULL  
+          master_id            integral                   32    'h0       
+          recording_detail     uvm_verbosity              32    UVM_FULL  
+        monitor                wb_master_monitor          -     @1214     
+          item_collected_port  uvm_analysis_port          -     @1221     
+            recording_detail   uvm_verbosity              32    UVM_FULL  
+          master_id            integral                   32    'h0       
+          recording_detail     uvm_verbosity              32    UVM_FULL  
+        sequencer              wb_master_sequencer        -     @1229     
+          rsp_export           uvm_analysis_export        -     @1236     
+            recording_detail   uvm_verbosity              32    UVM_FULL  
+          seq_item_export      uvm_seq_item_pull_imp      -     @1330     
+            recording_detail   uvm_verbosity              32    UVM_FULL  
+          master_id            integral                   32    'h0       
+          recording_detail     uvm_verbosity              32    UVM_FULL  
+          arbitration_queue    array                      0     -         
+          lock_queue           array                      0     -         
+          num_last_reqs        integral                   32    'd1       
+          num_last_rsps        integral                   32    'd1       
+        is_active              uvm_active_passive_enum    1     UVM_ACTIVE
+        master_id              integral                   32    'h0       
+        recording_detail       uvm_verbosity              32    UVM_FULL  
+      num_masters              integral                   32    'h1       
+      num_slaves               integral                   32    'h0       
+      recording_detail         uvm_verbosity              32    UVM_FULL  
+    recording_detail           uvm_verbosity              32    UVM_FULL  
+--------------------------------------------------------------------------
+
+UVM_INFO ../spi/sv/../sv/spi_slave_driver.sv(47) @ 0: uvm_test_top.tb.spi1.slave_agent.drv [spi_slave_driver] Running Simulation...
+UVM_INFO ../spi/sv/../sv/spi_slave_monitor.sv(80) @ 0: uvm_test_top.tb.spi1.slave_agent.mon [spi_slave_monitor] Running Simulation...
+UVM_INFO ../spi/sv/../sv/spi_slave_driver.sv(47) @ 0: uvm_test_top.tb.spi2.slave_agent.drv [spi_slave_driver] Running Simulation...
+UVM_INFO ../spi/sv/../sv/spi_slave_monitor.sv(80) @ 0: uvm_test_top.tb.spi2.slave_agent.mon [spi_slave_monitor] Running Simulation...
+UVM_INFO mc_seq_lib.sv(23) @ 0: uvm_test_top.tb.mc_seqr@@write_seq [write_seq] raise objection
+UVM_INFO ../clock_and_reset/sv/clock_and_reset_seq.sv(48) @ 0: uvm_test_top.tb.clk_rst.agent.sequencer@@clk10_rst5_seq [clk10_rst5_seq] Starting test_sequence sequence body
+UVM_INFO ../clock_and_reset/sv/clock_and_reset_seq.sv(20) @ 0: uvm_test_top.tb.clk_rst.agent.sequencer@@clk10_rst5_seq.cr [clock_and_reset_sequence] starting body clock_and_reset_wait_seq
+UVM_INFO ../wb/sv/../sv/wb_master_seqs.sv(139) @ 0: uvm_test_top.tb.wb.masters[0].sequencer@@write_seq.wb_spi1_write [wb_write_spi1_seq] Executing sequence
+UVM_INFO ../clock_and_reset/sv/clock_and_reset_seq.sv(48) @ 0: uvm_test_top.tb.clk_rst.agent.sequencer@@clk10_rst5_seq [clk10_rst5_seq] Starting test_sequence sequence body
+UVM_INFO ../clock_and_reset/sv/clock_and_reset_seq.sv(20) @ 0: uvm_test_top.tb.clk_rst.agent.sequencer@@clk10_rst5_seq.cr [clock_and_reset_sequence] starting body clock_and_reset_wait_seq
+UVM_INFO ../wb/sv/../sv/wb_master_driver.sv(32) @ 0: uvm_test_top.tb.wb.masters[0].driver [wb_master_driver] ----------------------------------------------------------------------------------------------------
+Name                           Type            Size  Value                                          
+----------------------------------------------------------------------------------------------------
+req                            wb_transaction  -     @1414                                          
+  op_type                      op_type_enum    1     wb_write                                       
+  addr                         integral        32    'h0                                            
+  din                          integral        8     'h70                                           
+  dout                         integral        8     'hxx                                           
+  valid_sb                     integral        1     'h0                                            
+  begin_time                   time            64    0                                              
+  depth                        int             32    'd3                                            
+  parent sequence (name)       string          13    wb_spi1_write                                  
+  parent sequence (full name)  string          47    uvm_test_top.tb.mc_seqr.write_seq.wb_spi1_write
+  sequencer                    string          39    uvm_test_top.tb.wb.masters[0].sequencer        
+----------------------------------------------------------------------------------------------------
+
+UVM_INFO ../clock_and_reset/sv/clock_and_reset_seq.sv(48) @ 0: uvm_test_top.tb.clk_rst.agent.sequencer@@clk10_rst5_seq [clk10_rst5_seq] Starting test_sequence sequence body
+UVM_INFO ../clock_and_reset/sv/clock_and_reset_seq.sv(20) @ 0: uvm_test_top.tb.clk_rst.agent.sequencer@@clk10_rst5_seq.cr [clock_and_reset_sequence] starting body clock_and_reset_wait_seq
+UVM_INFO ../clock_and_reset/sv/clock_and_reset_seq.sv(48) @ 0: uvm_test_top.tb.clk_rst.agent.sequencer@@clk10_rst5_seq [clk10_rst5_seq] Starting test_sequence sequence body
+UVM_INFO ../clock_and_reset/sv/clock_and_reset_seq.sv(20) @ 0: uvm_test_top.tb.clk_rst.agent.sequencer@@clk10_rst5_seq.cr [clock_and_reset_sequence] starting body clock_and_reset_wait_seq
+UVM_INFO ../clock_and_reset/sv/clock_and_reset_seq.sv(48) @ 0: uvm_test_top.tb.clk_rst.agent.sequencer@@clk10_rst5_seq [clk10_rst5_seq] Starting test_sequence sequence body
+UVM_INFO ../clock_and_reset/sv/clock_and_reset_seq.sv(20) @ 0: uvm_test_top.tb.clk_rst.agent.sequencer@@clk10_rst5_seq.cr [clock_and_reset_sequence] starting body clock_and_reset_wait_seq
+UVM_INFO ../clock_and_reset/sv/clock_and_reset_seq.sv(48) @ 0: uvm_test_top.tb.clk_rst.agent.sequencer@@clk10_rst5_seq [clk10_rst5_seq] Starting test_sequence sequence body
+UVM_INFO ../clock_and_reset/sv/clock_and_reset_seq.sv(20) @ 0: uvm_test_top.tb.clk_rst.agent.sequencer@@clk10_rst5_seq.cr [clock_and_reset_sequence] starting body clock_and_reset_wait_seq
+UVM_INFO ../clock_and_reset/sv/clock_and_reset_seq.sv(48) @ 0: uvm_test_top.tb.clk_rst.agent.sequencer@@clk10_rst5_seq [clk10_rst5_seq] Starting test_sequence sequence body
+UVM_INFO ../clock_and_reset/sv/clock_and_reset_seq.sv(20) @ 0: uvm_test_top.tb.clk_rst.agent.sequencer@@clk10_rst5_seq.cr [clock_and_reset_sequence] starting body clock_and_reset_wait_seq
+UVM_INFO ../clock_and_reset/sv/clock_and_reset_seq.sv(48) @ 0: uvm_test_top.tb.clk_rst.agent.sequencer@@clk10_rst5_seq [clk10_rst5_seq] Starting test_sequence sequence body
+UVM_INFO ../clock_and_reset/sv/clock_and_reset_seq.sv(20) @ 0: uvm_test_top.tb.clk_rst.agent.sequencer@@clk10_rst5_seq.cr [clock_and_reset_sequence] starting body clock_and_reset_wait_seq
+UVM_INFO ../clock_and_reset/sv/clock_and_reset_seq.sv(48) @ 0: uvm_test_top.tb.clk_rst.agent.sequencer@@clk10_rst5_seq [clk10_rst5_seq] Starting test_sequence sequence body
+UVM_INFO ../clock_and_reset/sv/clock_and_reset_seq.sv(20) @ 0: uvm_test_top.tb.clk_rst.agent.sequencer@@clk10_rst5_seq.cr [clock_and_reset_sequence] starting body clock_and_reset_wait_seq
+UVM_INFO ../clock_and_reset/sv/clock_and_reset_seq.sv(48) @ 0: uvm_test_top.tb.clk_rst.agent.sequencer@@clk10_rst5_seq [clk10_rst5_seq] Starting test_sequence sequence body
+UVM_INFO ../clock_and_reset/sv/clock_and_reset_seq.sv(20) @ 0: uvm_test_top.tb.clk_rst.agent.sequencer@@clk10_rst5_seq.cr [clock_and_reset_sequence] starting body clock_and_reset_wait_seq
+UVM_INFO ../clock_and_reset/sv/clock_and_reset_seq.sv(48) @ 0: uvm_test_top.tb.clk_rst.agent.sequencer@@clk10_rst5_seq [clk10_rst5_seq] Starting test_sequence sequence body
+UVM_INFO ../clock_and_reset/sv/clock_and_reset_seq.sv(20) @ 0: uvm_test_top.tb.clk_rst.agent.sequencer@@clk10_rst5_seq.cr [clock_and_reset_sequence] starting body clock_and_reset_wait_seq
+UVM_INFO ../clock_and_reset/sv/clock_and_reset_seq.sv(48) @ 0: uvm_test_top.tb.clk_rst.agent.sequencer@@clk10_rst5_seq [clk10_rst5_seq] Starting test_sequence sequence body
+UVM_INFO ../clock_and_reset/sv/clock_and_reset_seq.sv(20) @ 0: uvm_test_top.tb.clk_rst.agent.sequencer@@clk10_rst5_seq.cr [clock_and_reset_sequence] starting body clock_and_reset_wait_seq
+UVM_INFO ../clock_and_reset/sv/clock_and_reset_seq.sv(48) @ 0: uvm_test_top.tb.clk_rst.agent.sequencer@@clk10_rst5_seq [clk10_rst5_seq] Starting test_sequence sequence body
+UVM_INFO ../clock_and_reset/sv/clock_and_reset_seq.sv(20) @ 0: uvm_test_top.tb.clk_rst.agent.sequencer@@clk10_rst5_seq.cr [clock_and_reset_sequence] starting body clock_and_reset_wait_seq
+UVM_INFO ../wb/sv/../sv/wb_master_monitor.sv(47) @ 75000: uvm_test_top.tb.wb.masters[0].monitor [wb_master_monitor] transaction collected :
+------------------------------------------
+Name        Type            Size  Value   
+------------------------------------------
+tr_collect  wb_transaction  -     @1683   
+  op_type   op_type_enum    1     wb_write
+  addr      integral        32    'h0     
+  din       integral        8     'h70    
+  dout      integral        8     'h0     
+  valid_sb  integral        1     'h0     
+------------------------------------------
+
+UVM_INFO ../wb_x_spi_module/sv/scoreboard.sv(56) @ 75000: uvm_test_top.tb.spiref.myscoreboard [SCOREBOARD] Received REF Transaction: ------------------------------------------
+Name        Type            Size  Value   
+------------------------------------------
+s           wb_transaction  -     @1687   
+  op_type   op_type_enum    1     wb_write
+  addr      integral        32    'h0     
+  din       integral        8     'h70    
+  dout      integral        8     'h0     
+  valid_sb  integral        1     'h0     
+------------------------------------------
+
+UVM_INFO ../wb/sv/../sv/wb_master_driver.sv(32) @ 75000: uvm_test_top.tb.wb.masters[0].driver [wb_master_driver] ----------------------------------------------------------------------------------------------------
+Name                           Type            Size  Value                                          
+----------------------------------------------------------------------------------------------------
+req                            wb_transaction  -     @1696                                          
+  op_type                      op_type_enum    1     wb_write                                       
+  addr                         integral        32    'h4                                            
+  din                          integral        8     'h1                                            
+  dout                         integral        8     'hxx                                           
+  valid_sb                     integral        1     'h0                                            
+  begin_time                   time            64    75000                                          
+  depth                        int             32    'd3                                            
+  parent sequence (name)       string          13    wb_spi1_write                                  
+  parent sequence (full name)  string          47    uvm_test_top.tb.mc_seqr.write_seq.wb_spi1_write
+  sequencer                    string          39    uvm_test_top.tb.wb.masters[0].sequencer        
+----------------------------------------------------------------------------------------------------
+
+UVM_INFO ../wb/sv/../sv/wb_master_monitor.sv(47) @ 95000: uvm_test_top.tb.wb.masters[0].monitor [wb_master_monitor] transaction collected :
+------------------------------------------
+Name        Type            Size  Value   
+------------------------------------------
+tr_collect  wb_transaction  -     @1691   
+  op_type   op_type_enum    1     wb_write
+  addr      integral        32    'h0     
+  din       integral        8     'h1     
+  dout      integral        8     'h0     
+  valid_sb  integral        1     'h0     
+------------------------------------------
+
+UVM_INFO ../wb_x_spi_module/sv/scoreboard.sv(56) @ 95000: uvm_test_top.tb.spiref.myscoreboard [SCOREBOARD] Received REF Transaction: ------------------------------------------
+Name        Type            Size  Value   
+------------------------------------------
+s           wb_transaction  -     @1700   
+  op_type   op_type_enum    1     wb_write
+  addr      integral        32    'h0     
+  din       integral        8     'h1     
+  dout      integral        8     'h0     
+  valid_sb  integral        1     'h0     
+------------------------------------------
+
+UVM_INFO ../wb/sv/../sv/wb_master_driver.sv(32) @ 95000: uvm_test_top.tb.wb.masters[0].driver [wb_master_driver] ----------------------------------------------------------------------------------------------------
+Name                           Type            Size  Value                                          
+----------------------------------------------------------------------------------------------------
+req                            wb_transaction  -     @1708                                          
+  op_type                      op_type_enum    1     wb_write                                       
+  addr                         integral        32    'h4                                            
+  din                          integral        8     'h70                                           
+  dout                         integral        8     'hxx                                           
+  valid_sb                     integral        1     'h1                                            
+  begin_time                   time            64    95000                                          
+  depth                        int             32    'd3                                            
+  parent sequence (name)       string          13    wb_spi1_write                                  
+  parent sequence (full name)  string          47    uvm_test_top.tb.mc_seqr.write_seq.wb_spi1_write
+  sequencer                    string          39    uvm_test_top.tb.wb.masters[0].sequencer        
+----------------------------------------------------------------------------------------------------
+
+UVM_INFO ../wb/sv/../sv/wb_master_monitor.sv(47) @ 115000: uvm_test_top.tb.wb.masters[0].monitor [wb_master_monitor] transaction collected :
+------------------------------------------
+Name        Type            Size  Value   
+------------------------------------------
+tr_collect  wb_transaction  -     @1704   
+  op_type   op_type_enum    1     wb_write
+  addr      integral        32    'h0     
+  din       integral        8     'h70    
+  dout      integral        8     'h0     
+  valid_sb  integral        1     'h0     
+------------------------------------------
+
+UVM_INFO ../wb_x_spi_module/sv/scoreboard.sv(56) @ 115000: uvm_test_top.tb.spiref.myscoreboard [SCOREBOARD] Received REF Transaction: ------------------------------------------
+Name        Type            Size  Value   
+------------------------------------------
+s           wb_transaction  -     @1712   
+  op_type   op_type_enum    1     wb_write
+  addr      integral        32    'h0     
+  din       integral        8     'h70    
+  dout      integral        8     'h0     
+  valid_sb  integral        1     'h0     
+------------------------------------------
+
+UVM_INFO ../wb/sv/../sv/wb_master_driver.sv(32) @ 275000: uvm_test_top.tb.wb.masters[0].driver [wb_master_driver] ----------------------------------------------------------------------------------------------------
+Name                           Type            Size  Value                                          
+----------------------------------------------------------------------------------------------------
+req                            wb_transaction  -     @1720                                          
+  op_type                      op_type_enum    1     wb_write                                       
+  addr                         integral        32    'h4                                            
+  din                          integral        8     'h0                                            
+  dout                         integral        8     'hxx                                           
+  valid_sb                     integral        1     'h0                                            
+  begin_time                   time            64    275000                                         
+  depth                        int             32    'd3                                            
+  parent sequence (name)       string          13    wb_spi1_write                                  
+  parent sequence (full name)  string          47    uvm_test_top.tb.mc_seqr.write_seq.wb_spi1_write
+  sequencer                    string          39    uvm_test_top.tb.wb.masters[0].sequencer        
+----------------------------------------------------------------------------------------------------
+
+UVM_INFO ../wb/sv/../sv/wb_master_monitor.sv(47) @ 295000: uvm_test_top.tb.wb.masters[0].monitor [wb_master_monitor] transaction collected :
+------------------------------------------
+Name        Type            Size  Value   
+------------------------------------------
+tr_collect  wb_transaction  -     @1716   
+  op_type   op_type_enum    1     wb_write
+  addr      integral        32    'h0     
+  din       integral        8     'h0     
+  dout      integral        8     'h0     
+  valid_sb  integral        1     'h1     
+------------------------------------------
+
+UVM_INFO ../wb_x_spi_module/sv/scoreboard.sv(56) @ 295000: uvm_test_top.tb.spiref.myscoreboard [SCOREBOARD] Received REF Transaction: ------------------------------------------
+Name        Type            Size  Value   
+------------------------------------------
+s           wb_transaction  -     @1724   
+  op_type   op_type_enum    1     wb_write
+  addr      integral        32    'h0     
+  din       integral        8     'h0     
+  dout      integral        8     'h0     
+  valid_sb  integral        1     'h1     
+------------------------------------------
+
+UVM_INFO ../wb/sv/../sv/wb_master_driver.sv(32) @ 295000: uvm_test_top.tb.wb.masters[0].driver [wb_master_driver] ----------------------------------------------------------------------------------------------------
+Name                           Type            Size  Value                                          
+----------------------------------------------------------------------------------------------------
+req                            wb_transaction  -     @1732                                          
+  op_type                      op_type_enum    1     wb_read                                        
+  addr                         integral        32    'h1                                            
+  din                          integral        8     'h30                                           
+  dout                         integral        8     'hxx                                           
+  valid_sb                     integral        1     'h0                                            
+  begin_time                   time            64    295000                                         
+  depth                        int             32    'd3                                            
+  parent sequence (name)       string          13    wb_spi1_write                                  
+  parent sequence (full name)  string          47    uvm_test_top.tb.mc_seqr.write_seq.wb_spi1_write
+  sequencer                    string          39    uvm_test_top.tb.wb.masters[0].sequencer        
+----------------------------------------------------------------------------------------------------
+
+UVM_INFO ../wb/sv/../sv/wb_master_monitor.sv(47) @ 315000: uvm_test_top.tb.wb.masters[0].monitor [wb_master_monitor] transaction collected :
+-----------------------------------------
+Name        Type            Size  Value  
+-----------------------------------------
+tr_collect  wb_transaction  -     @1728  
+  op_type   op_type_enum    1     wb_read
+  addr      integral        32    'h1    
+  din       integral        8     'h0    
+  dout      integral        8     'h0    
+  valid_sb  integral        1     'h0    
+-----------------------------------------
+
+UVM_INFO ../wb_x_spi_module/sv/scoreboard.sv(56) @ 315000: uvm_test_top.tb.spiref.myscoreboard [SCOREBOARD] Received REF Transaction: -----------------------------------------
+Name        Type            Size  Value  
+-----------------------------------------
+s           wb_transaction  -     @1736  
+  op_type   op_type_enum    1     wb_read
+  addr      integral        32    'h1    
+  din       integral        8     'h0    
+  dout      integral        8     'h5    
+  valid_sb  integral        1     'h0    
+-----------------------------------------
+
+UVM_INFO ../wb_x_spi_module/sv/scoreboard.sv(183) @ 315000: uvm_test_top.tb.spiref.myscoreboard [SCOREBOARD] MATCH: WB = 05, REF_MODEL SPSR = 05
+UVM_INFO mc_seq_lib.sv(37) @ 315000: uvm_test_top.tb.mc_seqr@@write_seq [write_seq] drop objection
+UVM_INFO /mnt/NVME2/synopsys/vcs/W-2024.09-SP1/etc/uvm/base/uvm_objection.svh(1274) @ 415000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO ../wb_x_spi_module/sv/scoreboard.sv(193) @ 415000: uvm_test_top.tb.spiref.myscoreboard [SCOREBOARD] -------------------- SCOREBOARD REPORT --------------------
+UVM_INFO ../wb_x_spi_module/sv/scoreboard.sv(194) @ 415000: uvm_test_top.tb.spiref.myscoreboard [SCOREBOARD] Total SPI Transactions  : 0
+UVM_INFO ../wb_x_spi_module/sv/scoreboard.sv(195) @ 415000: uvm_test_top.tb.spiref.myscoreboard [SCOREBOARD] Total REF Transactions  : 5
+UVM_INFO ../wb_x_spi_module/sv/scoreboard.sv(196) @ 415000: uvm_test_top.tb.spiref.myscoreboard [SCOREBOARD] Total Received Packets  : 5
+UVM_INFO ../wb_x_spi_module/sv/scoreboard.sv(197) @ 415000: uvm_test_top.tb.spiref.myscoreboard [SCOREBOARD] Total Matched Packets   : 1
+UVM_INFO ../wb_x_spi_module/sv/scoreboard.sv(198) @ 415000: uvm_test_top.tb.spiref.myscoreboard [SCOREBOARD] Total Wrong Packets     : 0
+
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   58
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[RNTST]     1
+[SCOREBOARD]    12
+[TEST_DONE]     1
+[UVMTOP]     1
+[clk10_rst5_seq]    13
+[clock_and_reset_sequence]    13
+[spi_slave_driver]     2
+[spi_slave_monitor]     2
+[wb_master_driver]     5
+[wb_master_monitor]     5
+[wb_write_spi1_seq]     1
+[write_seq]     2
+$finish called from file "/mnt/NVME2/synopsys/vcs/W-2024.09-SP1/etc/uvm/base/uvm_root.svh", line 437.
+$finish at simulation time               415000
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 415000 ps
+CPU Time:      0.280 seconds;       Data structure size:   0.5Mb
+Mon May  5 09:16:48 2025

@@ -1,0 +1,54 @@
+-----------------------------------------------------------------------
+Name                          Type                     Size  Value     
+-----------------------------------------------------------------------
+uvm_test_top                  base_test                -     @461      
+  tb                          spi_tb                   -     @469      
+    env                       spi_env                  -     @481      
+      master_agent            spi_master_agent         -     @488      
+        driver                spi_master_driver        -     @509      
+          rsp_port            uvm_analysis_port        -     @524      
+            recording_detail  integral                 32    'd1       
+          seq_item_port       uvm_seq_item_pull_port   -     @516      
+            recording_detail  integral                 32    'd1       
+          recording_detail    integral                 32    'd1       
+        monitor               spi_monitor              -     @641      
+          mon_ap              uvm_analysis_port        -     @648      
+            recording_detail  integral                 32    'd1       
+          recording_detail    integral                 32    'd1       
+        sequencer             spi_master_sequencer     -     @532      
+          rsp_export          uvm_analysis_export      -     @539      
+            recording_detail  integral                 32    'd1       
+          seq_item_export     uvm_seq_item_pull_imp    -     @633      
+            recording_detail  integral                 32    'd1       
+          recording_detail    integral                 32    'd1       
+          arbitration_queue   array                    0     -         
+          lock_queue          array                    0     -         
+          num_last_reqs       integral                 32    'd1       
+          num_last_rsps       integral                 32    'd1       
+        is_active             uvm_active_passive_enum  1     UVM_ACTIVE
+        recording_detail      integral                 32    'd1       
+      slave_agent             spi_slave_agent          -     @495      
+        drv                   spi_slave_driver         -     @665      
+          rsp_port            uvm_analysis_port        -     @680      
+            recording_detail  integral                 32    'd1       
+          seq_item_port       uvm_seq_item_pull_port   -     @672      
+            recording_detail  integral                 32    'd1       
+          recording_detail    integral                 32    'd1       
+        mon                   spi_monitor              -     @797      
+          mon_ap              uvm_analysis_port        -     @805      
+            recording_detail  integral                 32    'd1       
+          recording_detail    integral                 32    'd1       
+        seqr                  spi_slave_sequencer      -     @688      
+          rsp_export          uvm_analysis_export      -     @695      
+            recording_detail  integral                 32    'd1       
+          seq_item_export     uvm_seq_item_pull_imp    -     @789      
+            recording_detail  integral                 32    'd1       
+          recording_detail    integral                 32    'd1       
+          arbitration_queue   array                    0     -         
+          lock_queue          array                    0     -         
+          num_last_reqs       integral                 32    'd1       
+          num_last_rsps       integral                 32    'd1       
+        recording_detail      integral                 32    'd1       
+      recording_detail        integral                 32    'd1       
+-----------------------------------------------------------------------
+
